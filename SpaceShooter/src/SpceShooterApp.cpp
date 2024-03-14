@@ -1,9 +1,3 @@
-namespace Unique {
-
-	__declspec(dllimport) void Print();
-
-}
-
 #include <Unique.h>
 
 

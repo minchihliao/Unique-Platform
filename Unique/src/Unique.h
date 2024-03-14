@@ -5,6 +5,7 @@
 
 #include <stdio.h>
 #include "Unique/Application.h"
+#include "Unique/Log.h"
 
 
 
