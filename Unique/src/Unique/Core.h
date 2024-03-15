@@ -9,3 +9,6 @@
 #else
 	#error Unique only supports Windos!
 #endif // UQ_PLAFORM_WINDOWS
+
+
+#define BIT(x) (1 << x)

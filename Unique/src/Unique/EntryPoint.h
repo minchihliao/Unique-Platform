@@ -8,7 +8,7 @@ int main(int arg,char** argv) {
 	Unique::Log::Init();
 	UQ_CORE_WARN("Initialize Log!");
 	UQ_INFO("Hello!");
-
+	
 	auto app = Unique::CreateApplication();
 	app->Run();
 	delete app;

@@ -25,6 +25,7 @@ project "Unique"
 
     includedirs
     {
+        "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include"
     }
 
@@ -70,7 +71,7 @@ project "SpaceShooter"
       includedirs
     {
         "Unique/vendor/spdlog/include",
-        "Unique/src;"
+        "Unique/src"
     }
 
     links
