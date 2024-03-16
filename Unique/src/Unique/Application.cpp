@@ -1,5 +1,5 @@
+#include "uqpch.h"
 #include "Application.h"
-
 #include "Unique/Events/ApplicationEvent.h"
 #include "Unique/Log.h"
 

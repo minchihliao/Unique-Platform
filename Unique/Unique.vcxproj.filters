@@ -4,8 +4,8 @@
     <Filter Include="Unique">
       <UniqueIdentifier>{9C8D27D6-882F-52AC-71EA-65005D2BD9FC}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Unique\Event">
-      <UniqueIdentifier>{EDD31FC6-D936-AF6A-82BC-E7206EFE7AED}</UniqueIdentifier>
+    <Filter Include="Unique\Events">
+      <UniqueIdentifier>{00521A8A-6C12-96C0-354D-DF3DA1CCDA9C}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -19,21 +19,22 @@
     <ClInclude Include="src\Unique\EntryPoint.h">
       <Filter>Unique</Filter>
     </ClInclude>
-    <ClInclude Include="src\Unique\Event\ApplicationEvent.h">
-      <Filter>Unique\Event</Filter>
+    <ClInclude Include="src\Unique\Events\ApplicationEvent.h">
+      <Filter>Unique\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\Unique\Event\Event.h">
-      <Filter>Unique\Event</Filter>
+    <ClInclude Include="src\Unique\Events\Event.h">
+      <Filter>Unique\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\Unique\Event\KeyEvent.h">
-      <Filter>Unique\Event</Filter>
+    <ClInclude Include="src\Unique\Events\KeyEvent.h">
+      <Filter>Unique\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\Unique\Event\MouseEvent.h">
-      <Filter>Unique\Event</Filter>
+    <ClInclude Include="src\Unique\Events\MouseEvent.h">
+      <Filter>Unique\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Unique\Log.h">
       <Filter>Unique</Filter>
     </ClInclude>
+    <ClInclude Include="src\uqpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Unique\Application.cpp">
@@ -42,5 +43,6 @@
     <ClCompile Include="src\Unique\Log.cpp">
       <Filter>Unique</Filter>
     </ClCompile>
+    <ClCompile Include="src\uqpch.cpp" />
   </ItemGroup>
 </Project>

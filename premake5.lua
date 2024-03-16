@@ -17,6 +17,11 @@ project "Unique"
 
     targetdir("bin/" .. Outputdir .. "/%{prj.name}")
     objdir("bin-int/" .. Outputdir .. "/%{prj.name}")
+
+    pchheader "uqpch.h"
+    pchsource "Unique/src/uqpch.cpp"
+
+
     files
     {
         "%{prj.name}/src/**.h",

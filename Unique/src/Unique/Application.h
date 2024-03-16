@@ -2,6 +2,7 @@
 
 #include "Core.h"
 
+
 namespace Unique
 {
 	class UNQIUE_API Application

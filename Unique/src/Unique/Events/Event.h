@@ -1,8 +1,6 @@
 #pragma once
-
+#include "uqpch.h"
 #include "Unique/Core.h"
-#include <string>
-#include <functional>
 
 namespace Unique 
 {
