@@ -10,6 +10,13 @@ configurations
 
 Outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["SFML"] = "Unique/vendor/SFML/include"
+
+include "Unique/vendor/SFML"
+
+
 project "Unique"
     location "Unique"
     kind "SharedLib"
@@ -31,7 +38,14 @@ project "Unique"
     includedirs
     {
         "%{prj.name}/src",
-        "%{prj.name}/vendor/spdlog/include"
+        "%{prj.name}/vendor/spdlog/include",
+        "%{IncludeDir.SFML}"
+    }
+
+    links 
+    {
+        "Unique/vendor/SFML/bin/Debug-windows-x86_64/SFML/SFML",
+        "opengl32.lib"
     }
 
     filter "system:windows"
@@ -42,7 +56,8 @@ project "Unique"
         defines
         {
              "UQ_BULD_DLL",
-             "UQ_PLAFORM_WINDOWS"
+             "UQ_PLAFORM_WINDOWS",
+             "SFML_STATIC"
         }
 
 
@@ -97,7 +112,8 @@ project "SpaceShooter"
 
         defines
         {
-             "UQ_PLAFORM_WINDOWS"
+             "UQ_PLAFORM_WINDOWS",
+             "SFML_STATIC"
         }
 
     filter "configurations:Debug"
