@@ -14,7 +14,9 @@
 #include <unordered_set>
 
 
-
+#include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
+#include <SFML/System.hpp>
 
 #ifdef  UQ_PLAFORM_WINDOWS
 	#include <Windows.h>

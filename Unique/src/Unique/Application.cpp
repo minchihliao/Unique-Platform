@@ -16,17 +16,18 @@ namespace Unique
 
 	void Application::Run()
 	{
-		WindowResizeEvent e(1280, 720);
-		if (e.IsInCategory(EventCategoryApplication))
-		{
-			UQ_TRACE(e);
-		}
-		if (e.IsInCategory(EventCategoryInput))
-		{
-			UQ_TRACE(e);
-		}
+        sf::RenderWindow window(sf::VideoMode(400, 400), "SFML works!");
+        sf::CircleShape shape(100.f);
+        shape.setFillColor(sf::Color::Red);
 
-		while (true);
+        while (true)
+        {
+
+            window.clear();
+            window.draw(shape);
+            window.display();
+        }
+
 	}
 
 }

@@ -10,12 +10,6 @@ configurations
 
 Outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
--- Include directories relative to root folder (solution directory)
-IncludeDir = {}
-IncludeDir["SFML"] = "Unique/vendor/SFML/include"
-
-include "Unique/vendor/SFML"
-
 
 project "Unique"
     location "Unique"
@@ -39,12 +33,11 @@ project "Unique"
     {
         "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include",
-        "%{IncludeDir.SFML}"
+        "%{prj.name}/vendor/SFML/include"
     }
 
     links 
     {
-        "Unique/vendor/SFML/bin/Debug-windows-x86_64/SFML/SFML",
         "opengl32.lib"
     }
 
@@ -57,7 +50,7 @@ project "Unique"
         {
              "UQ_BULD_DLL",
              "UQ_PLAFORM_WINDOWS",
-             "SFML_STATIC"
+             "SFML_STATIC" 
         }
 
 
@@ -65,15 +58,72 @@ project "Unique"
     filter "configurations:Debug"
         defines "UQ_DEBUG"
         symbols "On"
+        libdirs { "%{prj.name}/vendor/SFML/lib" }
+        links 
+        {
+            "sfml-graphics-s-d.lib",
+            "sfml-window-s-d.lib",
+            "sfml-system-s-d.lib",
+            "sfml-network-s-d.lib",
+            "sfml-audio-s-d.lib",
+            "openal32.lib",
+            "freetype.lib",
+            "winmm.lib",
+            "gdi32.lib",
+            "flac.lib",
+            "vorbisenc.lib",
+            "vorbisfile.lib",
+            "vorbis.lib",
+            "ogg.lib",
+            "ws2_32.lib"
+            
+        }
 
     filter "configurations:Release"
         defines "UQ_RELEASE"
         optimize "On"
+        libdirs { "%{prj.name}/vendor/SFML/lib" }
+        links 
+        {
+            "sfml-system-s.lib",
+            "sfml-graphics-s.lib",
+            "sfml-audio-s.lib",
+            "sfml-window-s.lib",
+            "sfml-network-s.lib",
+            "openal32.lib",
+            "freetype.lib",
+            "winmm.lib",
+            "gdi32.lib",
+            "flac.lib",
+            "vorbisenc.lib",
+            "vorbisfile.lib",
+            "vorbis.lib",
+            "ogg.lib",
+            "ws2_32.lib"
+        }
 
     filter "configurations:Dist"
         defines "UQ_DIST"
         optimize "On"
-
+        libdirs { "%{prj.name}/vendor/SFML/lib" }
+        links 
+        {
+            "sfml-system-s.lib",
+            "sfml-graphics-s.lib",
+            "sfml-audio-s.lib",
+            "sfml-window-s.lib",
+            "sfml-network-s.lib",
+            "openal32.lib",
+            "freetype.lib",
+            "winmm.lib",
+            "gdi32.lib",
+            "flac.lib",
+            "vorbisenc.lib",
+            "vorbisfile.lib",
+            "vorbis.lib",
+            "ogg.lib",
+            "ws2_32.lib"
+        }
 
 project "SpaceShooter"
     location "SpaceShooter"
@@ -112,8 +162,7 @@ project "SpaceShooter"
 
         defines
         {
-             "UQ_PLAFORM_WINDOWS",
-             "SFML_STATIC"
+             "UQ_PLAFORM_WINDOWS"
         }
 
     filter "configurations:Debug"
