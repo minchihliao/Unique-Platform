@@ -1,8 +1,10 @@
 
 #include "uqpch.h"
 #include "SFMLWindow.h"
-#include <SFML/Graphics.hpp>
 
+#include "Unique/Events/ApplicationEvent.h"
+#include "Unique/Events/MouseEvent.h"
+#include "Unique/Events/KeyEvent.h"
 
 namespace Unique
 {
@@ -49,10 +51,13 @@ namespace Unique
 		m_Window->close();
 	}
 
+	
+
 	void SFMLWindow::OnUpdate()
 	{
 		if (m_Window->isOpen())
 		{
+			OnEvent();
 			m_Window->clear();
 			if (!m_Objs.empty()) {
 				for (auto& obj : m_Objs)
@@ -63,10 +68,66 @@ namespace Unique
 			m_Window->display();
 		}
 
-		/*sf::Event event;
-		if(m_Window->pollEvent(event))
+	}
+
+	void SFMLWindow::OnEvent()
+	{
+		sf::Event event;
+		while (m_Window->pollEvent(event))
 		{
-		}*/
+			if (event.type == sf::Event::Resized) {
+				m_Data.Width = event.size.width;
+				m_Data.Height = event.size.height;
+				WindowResizeEvent event(m_Data.Width, m_Data.Height);
+				m_Data.EventCallback(event);
+			}
+
+			if (event.type == sf::Event::Closed) {
+				WindowCloseEvent event;
+				m_Data.EventCallback(event);
+			}
+
+			//Keyboard
+			if (event.type == sf::Event::KeyPressed) 
+			{
+				KeyPressedEvent event(event.key.code, 0);
+				m_Data.EventCallback(event);
+			}
+
+			if (event.type == sf::Event::KeyReleased)
+			{
+				KeyReleasedEvent  event(event.key.code);
+				m_Data.EventCallback(event);
+			}
+
+			//Mouse
+			if (event.type == sf::Event::MouseButtonPressed)
+			{
+				MouseButtonPressedEvent event(event.mouseButton.button);
+				m_Data.EventCallback(event);
+			}
+
+			if (event.type == sf::Event::MouseButtonReleased)
+			{
+				MouseButtonReleasedEvent event(event.mouseButton.button);
+				m_Data.EventCallback(event);
+			}
+
+			if (event.type == sf::Event::MouseWheelScrolled)
+			{
+				MouseScrolledEvent event((float)event.mouseWheelScroll.x, (float)event.mouseWheelScroll.y);
+				m_Data.EventCallback(event);
+			}
+
+			//Cursor
+			if (event.type == sf::Event::MouseMoved)
+			{
+				MouseMovedEvent event((float)event.mouseMove.x, (float)event.mouseMove.y);
+				m_Data.EventCallback(event);
+			}
+
+
+		}
 	}
 
 	void SFMLWindow::SetBackgroundColor(sf::Color color)

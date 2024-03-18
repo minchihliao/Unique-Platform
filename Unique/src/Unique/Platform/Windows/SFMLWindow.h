@@ -33,6 +33,8 @@ namespace Unique {
 	private:
 		virtual void Init(const WindowProps& props);
 		virtual void Shutdown();
+		
+		void OnEvent();
 
 	private:
 
