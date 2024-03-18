@@ -115,7 +115,7 @@ namespace Unique
 
 			if (event.type == sf::Event::MouseWheelScrolled)
 			{
-				MouseScrolledEvent event((float)event.mouseWheelScroll.x, (float)event.mouseWheelScroll.y);
+				MouseScrolledEvent event(0, (float)event.mouseWheelScroll.delta);
 				m_Data.EventCallback(event);
 			}
 
