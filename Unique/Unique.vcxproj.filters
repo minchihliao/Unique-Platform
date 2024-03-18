@@ -7,6 +7,9 @@
     <Filter Include="Unique\Events">
       <UniqueIdentifier>{00521A8A-6C12-96C0-354D-DF3DA1CCDA9C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{8a2f70ee-ed5c-4f02-a12c-0a4db8af6857}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Unique.h" />
@@ -35,6 +38,10 @@
       <Filter>Unique</Filter>
     </ClInclude>
     <ClInclude Include="src\uqpch.h" />
+    <ClInclude Include="src\Unique\Window.h">
+      <Filter>Unique</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Unique\Platform\Windows\SFMLWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Unique\Application.cpp">
@@ -44,5 +51,6 @@
       <Filter>Unique</Filter>
     </ClCompile>
     <ClCompile Include="src\uqpch.cpp" />
+    <ClCompile Include="src\Unique\Platform\Windows\SFMLWindow.cpp" />
   </ItemGroup>
 </Project>

@@ -155,11 +155,14 @@
     <ClInclude Include="src\Unique\Events\KeyEvent.h" />
     <ClInclude Include="src\Unique\Events\MouseEvent.h" />
     <ClInclude Include="src\Unique\Log.h" />
+    <ClInclude Include="src\Unique\Platform\Windows\SFMLWindow.h" />
     <ClInclude Include="src\uqpch.h" />
+    <ClInclude Include="src\Unique\Window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Unique\Application.cpp" />
     <ClCompile Include="src\Unique\Log.cpp" />
+    <ClCompile Include="src\Unique\Platform\Windows\SFMLWindow.cpp" />
     <ClCompile Include="src\uqpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>

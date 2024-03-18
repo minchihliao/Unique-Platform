@@ -7,7 +7,7 @@ namespace Unique
 {
 	Application::Application() 
 	{
-	
+		m_Window = std::unique_ptr<Window>(Window::Create());
 	}
 	Application::~Application()
 	{
@@ -16,17 +16,19 @@ namespace Unique
 
 	void Application::Run()
 	{
-        sf::RenderWindow window(sf::VideoMode(400, 400), "SFML works!");
-        sf::CircleShape shape(100.f);
-        shape.setFillColor(sf::Color::Red);
+		WindowResizeEvent e(1280, 720);
+		if (e.IsInCategory(EventCategoryApplication))
+			while (m_Running)
+			{
+				UQ_TRACE(e);
+				m_Window->OnUpdate();	
+			}
+		if (e.IsInCategory(EventCategoryInput))
+		{
+			UQ_TRACE(e);
+		}
 
-        while (true)
-        {
-
-            window.clear();
-            window.draw(shape);
-            window.display();
-        }
+		while (true);
 
 	}
 

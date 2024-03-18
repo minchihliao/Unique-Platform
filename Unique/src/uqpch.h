@@ -13,10 +13,10 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "Unique/Log.h"
 
-#include <SFML/Graphics.hpp>
-#include <SFML/Window.hpp>
-#include <SFML/System.hpp>
+
+
 
 #ifdef  UQ_PLAFORM_WINDOWS
 	#include <Windows.h>
