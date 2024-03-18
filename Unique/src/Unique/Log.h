@@ -7,7 +7,7 @@
 
 namespace Unique
 {
-	class UNQIUE_API Log
+	class UNIQUE_API Log
 	{
 	public:
 		static void Init();

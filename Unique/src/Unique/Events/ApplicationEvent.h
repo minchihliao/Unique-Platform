@@ -5,7 +5,7 @@
 
 namespace Unique 
 {
-	class UNQIUE_API WindowResizeEvent : public Event
+	class UNIQUE_API WindowResizeEvent : public Event
 	{
 	public:
 		WindowResizeEvent(unsigned int width, unsigned int height)
@@ -27,7 +27,7 @@ namespace Unique
 		unsigned int m_Width, m_Height;
 	};
 
-	class UNQIUE_API WindowCloseEvent : public Event
+	class UNIQUE_API WindowCloseEvent : public Event
 	{
 	public:
 		WindowCloseEvent() {}
@@ -36,7 +36,7 @@ namespace Unique
 			EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class UNQIUE_API AppTickEvent : public Event
+	class UNIQUE_API AppTickEvent : public Event
 	{
 	public:
 		AppTickEvent() {}
@@ -45,7 +45,7 @@ namespace Unique
 			EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class UNQIUE_API AppUpdateEvent : public Event
+	class UNIQUE_API AppUpdateEvent : public Event
 	{
 	public:
 		AppUpdateEvent() {}
@@ -54,7 +54,7 @@ namespace Unique
 			EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class UNQIUE_API AppRenderEvent : public Event
+	class UNIQUE_API AppRenderEvent : public Event
 	{
 	public:
 		AppRenderEvent() {}

@@ -22,7 +22,7 @@ namespace Unique
 	};
 
 
-	class UNQIUE_API Window
+	class UNIQUE_API Window
 	{
 		public:
 			using EventCallbackFn = std::function<void(Event&)>;

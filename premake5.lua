@@ -57,8 +57,10 @@ project "Unique"
 
     filter "configurations:Debug"
         defines "UQ_DEBUG"
+        buildoptions "/MDd"
         symbols "On"
         libdirs { "%{prj.name}/vendor/SFML/lib" }
+       
         links 
         {
             "sfml-graphics-s-d.lib",
@@ -81,6 +83,7 @@ project "Unique"
 
     filter "configurations:Release"
         defines "UQ_RELEASE"
+        buildoptions "/MD"
         optimize "On"
         libdirs { "%{prj.name}/vendor/SFML/lib" }
         links 
@@ -104,6 +107,7 @@ project "Unique"
 
     filter "configurations:Dist"
         defines "UQ_DIST"
+        buildoptions "/MD"
         optimize "On"
         libdirs { "%{prj.name}/vendor/SFML/lib" }
         links 
@@ -167,14 +171,17 @@ project "SpaceShooter"
 
     filter "configurations:Debug"
         defines "UQ_DEBUG"
+        buildoptions "/MDd"
         symbols "On"
 
     filter "configurations:Release"
         defines "UQ_RELEASE"
+        buildoptions "/MD"
         optimize "On"
 
     filter "configurations:Dist"
         defines "UQ_DIST"
+        buildoptions "/MD"
         optimize "On"
 
 
@@ -220,12 +227,15 @@ project "UniquePlatform"
 
     filter "configurations:Debug"
         defines "UQ_DEBUG"
+        buildoptions "/MDd"
         symbols "On"
 
     filter "configurations:Release"
         defines "UQ_RELEASE"
+        buildoptions "/MD"
         optimize "On"
 
     filter "configurations:Dist"
         defines "UQ_DIST"
+        buildoptions "/MD"
         optimize "On"

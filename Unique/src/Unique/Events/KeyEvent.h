@@ -6,7 +6,7 @@
 
 namespace Unique 
 {
-	class UNQIUE_API KeyEvent : public Event
+	class UNIQUE_API KeyEvent : public Event
 	{
 	public:
 		inline int GetKeyCode() const { return m_KeyCode; }
@@ -19,7 +19,7 @@ namespace Unique
 		int m_KeyCode;
 	};
 
-	class UNQIUE_API KeyPressedEvent : public KeyEvent
+	class UNIQUE_API KeyPressedEvent : public KeyEvent
 	{
 	public:
 		KeyPressedEvent(int keycode, int repeatCount)
@@ -39,7 +39,7 @@ namespace Unique
 		int m_RepeatCount;
 	};
 
-	class UNQIUE_API KeyReleasedEvent : public KeyEvent
+	class UNIQUE_API KeyReleasedEvent : public KeyEvent
 	{
 	public:
 		KeyReleasedEvent(int keycode)

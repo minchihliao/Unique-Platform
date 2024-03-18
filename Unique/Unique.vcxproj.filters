@@ -42,6 +42,8 @@
       <Filter>Unique</Filter>
     </ClInclude>
     <ClInclude Include="src\Unique\Platform\Windows\SFMLWindow.h" />
+    <ClInclude Include="src\Unique\Layer.h" />
+    <ClInclude Include="src\Unique\LayerStack.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Unique\Application.cpp">
@@ -52,5 +54,7 @@
     </ClCompile>
     <ClCompile Include="src\uqpch.cpp" />
     <ClCompile Include="src\Unique\Platform\Windows\SFMLWindow.cpp" />
+    <ClCompile Include="src\Unique\Layer.cpp" />
+    <ClCompile Include="src\Unique\LayerStack.cpp" />
   </ItemGroup>
 </Project>

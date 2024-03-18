@@ -5,7 +5,7 @@
 
 namespace Unique 
 {
-	class UNQIUE_API MouseMovedEvent : public Event
+	class UNIQUE_API MouseMovedEvent : public Event
 	{
 	public:
 		MouseMovedEvent(float x, float y)
@@ -27,7 +27,7 @@ namespace Unique
 		float m_MouseX, m_MouseY;
 	};
 
-	class UNQIUE_API MouseScrolledEvent : public Event
+	class UNIQUE_API MouseScrolledEvent : public Event
 	{
 	public:
 		MouseScrolledEvent(float xOffset, float yOffset)
@@ -49,7 +49,7 @@ namespace Unique
 		float m_XOffset, m_YOffset;
 	};
 
-	class UNQIUE_API MouseButtonEvent : public Event
+	class UNIQUE_API MouseButtonEvent : public Event
 	{
 	public:
 		inline int GetMouseButton() const { return m_Button; }
@@ -62,7 +62,7 @@ namespace Unique
 		int m_Button;
 	};
 
-	class UNQIUE_API MouseButtonPressedEvent : public MouseButtonEvent
+	class UNIQUE_API MouseButtonPressedEvent : public MouseButtonEvent
 	{
 	public:
 		MouseButtonPressedEvent(int button)
@@ -78,7 +78,7 @@ namespace Unique
 		EVENT_CLASS_TYPE(MouseButtonPressed)
 	};
 
-	class UNQIUE_API MouseButtonReleasedEvent : public MouseButtonEvent
+	class UNIQUE_API MouseButtonReleasedEvent : public MouseButtonEvent
 	{
 	public:
 		MouseButtonReleasedEvent(int button)
