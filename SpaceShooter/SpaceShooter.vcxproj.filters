@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Unique">
+      <UniqueIdentifier>{9C8D27D6-882F-52AC-71EA-65005D2BD9FC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Unique\vendor">
+      <UniqueIdentifier>{793C38FB-E5FC-B331-AE37-FDAE1AB7F80D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Unique\vendor\imgui">
+      <UniqueIdentifier>{A3000803-0F62-E510-98CF-2BC304301CD0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\SpceShooterApp.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

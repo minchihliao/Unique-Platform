@@ -7,8 +7,14 @@
     <Filter Include="Unique\Events">
       <UniqueIdentifier>{00521A8A-6C12-96C0-354D-DF3DA1CCDA9C}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Platform">
-      <UniqueIdentifier>{8a2f70ee-ed5c-4f02-a12c-0a4db8af6857}</UniqueIdentifier>
+    <Filter Include="Unique\Platform">
+      <UniqueIdentifier>{70D91496-DC64-825A-E575-054F5180DE5A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Unique\Platform\ImGui">
+      <UniqueIdentifier>{9AA21613-060F-D20D-CF02-6A6B3B2EF475}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Unique\Platform\Windows">
+      <UniqueIdentifier>{AAF35C62-162B-A5F9-1F35-091D8BEBCBF2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -34,27 +40,45 @@
     <ClInclude Include="src\Unique\Events\MouseEvent.h">
       <Filter>Unique\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Unique\Layer.h">
+      <Filter>Unique</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Unique\LayerStack.h">
+      <Filter>Unique</Filter>
+    </ClInclude>
     <ClInclude Include="src\Unique\Log.h">
       <Filter>Unique</Filter>
     </ClInclude>
-    <ClInclude Include="src\uqpch.h" />
+    <ClInclude Include="src\Unique\Platform\ImGui\ImGuiLayer.h">
+      <Filter>Unique\Platform\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Unique\Platform\Windows\SFMLWindow.h">
+      <Filter>Unique\Platform\Windows</Filter>
+    </ClInclude>
     <ClInclude Include="src\Unique\Window.h">
       <Filter>Unique</Filter>
     </ClInclude>
-    <ClInclude Include="src\Unique\Platform\Windows\SFMLWindow.h" />
-    <ClInclude Include="src\Unique\Layer.h" />
-    <ClInclude Include="src\Unique\LayerStack.h" />
+    <ClInclude Include="src\uqpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Unique\Application.cpp">
       <Filter>Unique</Filter>
     </ClCompile>
+    <ClCompile Include="src\Unique\Layer.cpp">
+      <Filter>Unique</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Unique\LayerStack.cpp">
+      <Filter>Unique</Filter>
+    </ClCompile>
     <ClCompile Include="src\Unique\Log.cpp">
       <Filter>Unique</Filter>
     </ClCompile>
+    <ClCompile Include="src\Unique\Platform\ImGui\ImGuiLayer.cpp">
+      <Filter>Unique\Platform\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Unique\Platform\Windows\SFMLWindow.cpp">
+      <Filter>Unique\Platform\Windows</Filter>
+    </ClCompile>
     <ClCompile Include="src\uqpch.cpp" />
-    <ClCompile Include="src\Unique\Platform\Windows\SFMLWindow.cpp" />
-    <ClCompile Include="src\Unique\Layer.cpp" />
-    <ClCompile Include="src\Unique\LayerStack.cpp" />
   </ItemGroup>
 </Project>

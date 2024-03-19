@@ -1,6 +1,7 @@
 #include "uqpch.h"
 #include "LayerStack.h"
 
+
 namespace Unique {
 
 	LayerStack::LayerStack()

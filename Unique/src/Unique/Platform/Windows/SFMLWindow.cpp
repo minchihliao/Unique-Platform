@@ -6,6 +6,8 @@
 #include "Unique/Events/MouseEvent.h"
 #include "Unique/Events/KeyEvent.h"
 
+#include "imgui.h"
+
 namespace Unique
 {
 
@@ -37,6 +39,8 @@ namespace Unique
 
 		m_Window = new sf::RenderWindow(sf::VideoMode((int)props.Width, (int)props.Height), m_Data.Title);
 		m_Window->setFramerateLimit(60);
+
+		//ImGui::SFML::Init(*m_Window);
 		//m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		//glfwMakeContextCurrent(m_Window);
 		//glfwSetWindowUserPointer(m_Window, &m_Data);

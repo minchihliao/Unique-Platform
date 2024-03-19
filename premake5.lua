@@ -9,7 +9,10 @@ configurations
 }
 
 Outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+IncludeDir = {}
+IncludeDir["imgui"] = "Unique/vendor/imgui"
 
+include "Unique/vendor/imgui"
 
 project "Unique"
     location "Unique"
@@ -33,11 +36,13 @@ project "Unique"
     {
         "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include",
-        "%{prj.name}/vendor/SFML/include"
+        "%{prj.name}/vendor/SFML/include",
+        "%{IncludeDir.imgui}"
     }
 
     links 
     {
+        "imgui",
         "opengl32.lib"
     }
 
@@ -59,7 +64,7 @@ project "Unique"
         defines "UQ_DEBUG"
         buildoptions "/MDd"
         symbols "On"
-        libdirs { "%{prj.name}/vendor/SFML/lib" }
+		libdirs { "%{prj.name}/vendor/SFML/lib" }
        
         links 
         {
@@ -81,11 +86,12 @@ project "Unique"
             
         }
 
+
     filter "configurations:Release"
         defines "UQ_RELEASE"
         buildoptions "/MD"
         optimize "On"
-        libdirs { "%{prj.name}/vendor/SFML/lib" }
+		libdirs { "%{prj.name}/vendor/SFML/lib" }
         links 
         {
             "sfml-system-s.lib",
@@ -105,11 +111,12 @@ project "Unique"
             "ws2_32.lib"
         }
 
+
     filter "configurations:Dist"
         defines "UQ_DIST"
         buildoptions "/MD"
         optimize "On"
-        libdirs { "%{prj.name}/vendor/SFML/lib" }
+		 libdirs { "%{prj.name}/vendor/SFML/lib" }
         links 
         {
             "sfml-system-s.lib",
@@ -128,6 +135,7 @@ project "Unique"
             "ogg.lib",
             "ws2_32.lib"
         }
+
 
 project "SpaceShooter"
     location "SpaceShooter"
@@ -145,7 +153,8 @@ project "SpaceShooter"
       includedirs
     {
         "Unique/vendor/spdlog/include",
-        "Unique/src"
+        "Unique/src",
+        "Unique/vendor/SFML2.6/include"
     }
 
     links
