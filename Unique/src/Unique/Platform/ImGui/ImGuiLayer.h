@@ -3,8 +3,8 @@
 #include "Unique/Application.h"
 #include "Unique/Platform/Windows/SFMLWindow.h"
 
-//#include "imgui.h"
-//#include "imgui-SFML.h"
+#include "imgui.h"
+#include "imgui-SFML.h"
 
 namespace Unique {
 
@@ -20,7 +20,7 @@ namespace Unique {
 			void OnEvent(Event& event);
 		private:
 			float m_Time = 0.0f;
-			/*sf::Clock deltaClock;*/
+			sf::Clock deltaClock;
 	};
 
 }

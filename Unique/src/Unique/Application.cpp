@@ -57,8 +57,7 @@ namespace Unique
 	{
 		while (m_Running)
 		{
-			m_Window->OnUpdate();	
-
+			m_Window->OnUpdate();
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
 		}

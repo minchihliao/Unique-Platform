@@ -1,5 +1,6 @@
 #include <Unique.h>
 
+
 class ExampleLayer : public Unique::Layer
 {
 public:
@@ -25,8 +26,8 @@ class SpaceShooter : public Unique::Application
 public:
 	SpaceShooter() 
 	{
-		PushLayer(new ExampleLayer());
-		PushOverlay(new Unique::ImGuiLayer());
+		//PushLayer(new ExampleLayer());
+		//PushLayer(new Unique::ImGuiLayer());
 	}
 	~SpaceShooter() 
 	{

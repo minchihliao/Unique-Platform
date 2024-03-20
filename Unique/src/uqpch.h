@@ -17,7 +17,6 @@
 
 
 
-
 #ifdef  UQ_PLAFORM_WINDOWS
 	#include <Windows.h>
 #endif //  UQ_PLAFORM_WINDOWS

@@ -10,9 +10,9 @@ configurations
 
 Outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
-IncludeDir["imgui"] = "Unique/vendor/imgui"
+IncludeDir["SFML_ImGui"] = "Unique/vendor/SFML_Imgui"
 
-include "Unique/vendor/imgui"
+include "Unique/vendor/SFML_Imgui"
 
 project "Unique"
     location "Unique"
@@ -36,14 +36,16 @@ project "Unique"
     {
         "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include",
-        "%{prj.name}/vendor/SFML/include",
-        "%{IncludeDir.imgui}"
+        "%{IncludeDir.SFML_ImGui}/Imgui",
+        "%{IncludeDir.SFML_ImGui}/SFML/include",
+        "%{IncludeDir.SFML_ImGui}/SFML/src"
     }
 
     links 
     {
-        "imgui",
-        "opengl32.lib"
+        "SFML_ImGui.lib",
+        "opengl32.lib",
+        "SFML_ImGui"
     }
 
     filter "system:windows"
@@ -55,7 +57,7 @@ project "Unique"
         {
              "UQ_BULD_DLL",
              "UQ_PLAFORM_WINDOWS",
-             "SFML_STATIC" 
+             "SFML_STATIC"
         }
 
 
@@ -64,77 +66,19 @@ project "Unique"
         defines "UQ_DEBUG"
         buildoptions "/MDd"
         symbols "On"
-		libdirs { "%{prj.name}/vendor/SFML/lib" }
-       
-        links 
-        {
-            "sfml-graphics-s-d.lib",
-            "sfml-window-s-d.lib",
-            "sfml-system-s-d.lib",
-            "sfml-network-s-d.lib",
-            "sfml-audio-s-d.lib",
-            "openal32.lib",
-            "freetype.lib",
-            "winmm.lib",
-            "gdi32.lib",
-            "flac.lib",
-            "vorbisenc.lib",
-            "vorbisfile.lib",
-            "vorbis.lib",
-            "ogg.lib",
-            "ws2_32.lib"
-            
-        }
+		
 
 
     filter "configurations:Release"
         defines "UQ_RELEASE"
         buildoptions "/MD"
         optimize "On"
-		libdirs { "%{prj.name}/vendor/SFML/lib" }
-        links 
-        {
-            "sfml-system-s.lib",
-            "sfml-graphics-s.lib",
-            "sfml-audio-s.lib",
-            "sfml-window-s.lib",
-            "sfml-network-s.lib",
-            "openal32.lib",
-            "freetype.lib",
-            "winmm.lib",
-            "gdi32.lib",
-            "flac.lib",
-            "vorbisenc.lib",
-            "vorbisfile.lib",
-            "vorbis.lib",
-            "ogg.lib",
-            "ws2_32.lib"
-        }
 
 
     filter "configurations:Dist"
         defines "UQ_DIST"
         buildoptions "/MD"
         optimize "On"
-		 libdirs { "%{prj.name}/vendor/SFML/lib" }
-        links 
-        {
-            "sfml-system-s.lib",
-            "sfml-graphics-s.lib",
-            "sfml-audio-s.lib",
-            "sfml-window-s.lib",
-            "sfml-network-s.lib",
-            "openal32.lib",
-            "freetype.lib",
-            "winmm.lib",
-            "gdi32.lib",
-            "flac.lib",
-            "vorbisenc.lib",
-            "vorbisfile.lib",
-            "vorbis.lib",
-            "ogg.lib",
-            "ws2_32.lib"
-        }
 
 
 project "SpaceShooter"
@@ -154,7 +98,8 @@ project "SpaceShooter"
     {
         "Unique/vendor/spdlog/include",
         "Unique/src",
-        "Unique/vendor/SFML2.6/include"
+        "Unique/vendor/SFML/include",
+        "Unique/vendor/imgui"
     }
 
     links
@@ -182,7 +127,18 @@ project "SpaceShooter"
         defines "UQ_DEBUG"
         buildoptions "/MDd"
         symbols "On"
-
+        libdirs { "Unique/vendor/SFML/lib" }
+       
+        links 
+        {
+            "opengl32.lib",
+            "sfml-graphics-d.lib",
+            "sfml-window-d.lib",
+            "sfml-system-d.lib",
+            "sfml-network-d.lib",
+            "sfml-audio-d.lib"
+        }
+       
     filter "configurations:Release"
         defines "UQ_RELEASE"
         buildoptions "/MD"
