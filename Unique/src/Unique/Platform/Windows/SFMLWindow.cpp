@@ -37,7 +37,7 @@ namespace Unique
 
 
 		m_Window = new sf::RenderWindow(sf::VideoMode((int)props.Width, (int)props.Height), m_Data.Title);
-		ImGui::SFML::Init(*m_Window);
+		//ImGui::SFML::Init(*m_Window);
 		m_Window->setFramerateLimit(60);
 		//ImGui::SFML::Init(*m_Window);
 		//m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
@@ -63,21 +63,43 @@ namespace Unique
 		if (m_Window->isOpen())
 		{
 			OnEvent();
-			ImGui::SFML::Update(*m_Window, deltaClock.restart());
+			/*ImGui::SFML::Update(*m_Window, deltaClock.restart());
 			ImGui::Begin("Window title");
 			ImGui::Text("Window text!");
-			ImGui::End();
+			ImGui::End();*/
+			
+			
+			/*ImGui::SFML::Render(*m_Window);*/
+			
+		}
+
+	}
+
+	void SFMLWindow::BegineUpdate()
+	{
+		if (m_Window->isOpen())
+		{
+			OnEvent();
 			m_Window->clear();
+		}
+	}
+
+	void SFMLWindow::Render()
+	{
+		if (m_Window->isOpen())
+		{
 			if (!m_Objs.empty()) {
 				for (auto& obj : m_Objs)
 				{
 					m_Window->draw(*obj);
 				}
 			}
-			ImGui::SFML::Render(*m_Window);
-			m_Window->display();
 		}
+	}
 
+	void SFMLWindow::EndUpdate()
+	{
+		m_Window->display();
 	}
 
 	void SFMLWindow::OnEvent()
@@ -85,7 +107,7 @@ namespace Unique
 		sf::Event event;
 		while (m_Window->pollEvent(event))
 		{
-			ImGui::SFML::ProcessEvent(event);
+			/*ImGui::SFML::ProcessEvent(event);*/
 			if (event.type == sf::Event::Resized) {
 				m_Data.Width = event.size.width;
 				m_Data.Height = event.size.height;

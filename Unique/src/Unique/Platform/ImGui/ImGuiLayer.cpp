@@ -23,7 +23,7 @@ namespace Unique {
 		UQ_CORE_INFO("Attach ImGuiLayer");
 	
 		auto window = dynamic_cast<SFMLWindow*>(&Application::Get().GetWindow());
-
+		ImGui::SFML::Init(window->GetSFMLWindow());
 		
 	}
 
@@ -37,6 +37,12 @@ namespace Unique {
 		UQ_CORE_INFO("ImGuiLayer Update");
 		auto window = dynamic_cast<SFMLWindow*>(&Application::Get().GetWindow());
 		ImGui::SFML::Update(window->GetSFMLWindow(), deltaClock.restart());
+		//Render ----
+		ImGui::Begin("Window title");
+		ImGui::Text("Window text!");
+		ImGui::End();
+		//---------
+		ImGui::SFML::Render(window->GetSFMLWindow());
 	}
 
 	void ImGuiLayer::OnEvent(Event& event)

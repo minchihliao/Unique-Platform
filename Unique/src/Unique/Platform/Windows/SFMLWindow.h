@@ -18,6 +18,10 @@ namespace Unique {
 
 		void OnUpdate() override;
 
+		void BegineUpdate() override;
+		void Render() override;
+		void EndUpdate() override;
+
 		inline unsigned int GetWidth() const override { return m_Data.Width; }
 		inline unsigned int GetHeight() const override { return m_Data.Height; }
 

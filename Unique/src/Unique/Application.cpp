@@ -57,9 +57,20 @@ namespace Unique
 	{
 		while (m_Running)
 		{
-			m_Window->OnUpdate();
-			for (Layer* layer : m_LayerStack)
-				layer->OnUpdate();
+			m_Window->BegineUpdate();
+			for (Layer* layer : m_LayerStack) {
+				if (!layer->GetType() == LayerType::ImGui) {
+					layer->OnUpdate();
+				}
+			}
+				
+			m_Window->Render();
+			for (Layer* layer : m_LayerStack) {
+				if (layer->GetType()==LayerType::ImGui) {
+					layer->OnUpdate();
+				}
+			}
+			m_Window->EndUpdate();
 		}
 		
 	}

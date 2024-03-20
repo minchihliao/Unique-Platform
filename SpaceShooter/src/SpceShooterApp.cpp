@@ -27,7 +27,7 @@ public:
 	SpaceShooter() 
 	{
 		//PushLayer(new ExampleLayer());
-		//PushLayer(new Unique::ImGuiLayer());
+		PushLayer(new Unique::ImGuiLayer());
 	}
 	~SpaceShooter() 
 	{

@@ -13,7 +13,7 @@ namespace Unique {
 		public:
 			ImGuiLayer();
 			~ImGuiLayer();
-
+			virtual LayerType GetType() const { return LayerType::ImGui; }
 			void OnAttach();
 			void OnDetach();
 			void OnUpdate();

@@ -29,6 +29,10 @@ namespace Unique
 
 			virtual ~Window() {}
 
+			virtual void BegineUpdate() =0;
+			virtual void Render() = 0;
+			virtual void EndUpdate() = 0;
+
 			virtual void OnUpdate() = 0;
 
 			virtual unsigned int GetWidth() const = 0;
