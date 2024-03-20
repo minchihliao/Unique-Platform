@@ -12,9 +12,11 @@ Outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["SFML_ImGui"] = "Unique/vendor/SFML_Imgui"
 
-include "Unique/vendor/SFML_Imgui"
 
+group "Dependencies"
+    include "Unique/vendor/SFML_Imgui"
 
+group ""
 project "Unique"
     location "Unique"
     kind "SharedLib"
@@ -111,6 +113,7 @@ project "SpaceShooter"
     postbuildcommands
     {
         ("{COPY} ../bin/" .. Outputdir .. "/Unique/Unique.dll %{cfg.targetdir}")
+        
     }
 
 

@@ -15,8 +15,8 @@
 #endif
 
 #ifdef UQ_ENABLE_ASSERTS
-	#define HZ_ASSERT(x, ...) { if(!(x)) { HZ_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
-	#define HZ_CORE_ASSERT(x, ...) { if(!(x)) { HZ_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+	#define UQ_ASSERT(x, ...) { if(!(x)) { UQ_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+	#define UQ_CORE_ASSERT(x, ...) { if(!(x)) { UQ_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 #else
 	#define UQ_ASSERT(x, ...)
 	#define UQ_CORE_ASSERT(x, ...)
