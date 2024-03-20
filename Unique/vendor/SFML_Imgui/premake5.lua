@@ -45,7 +45,6 @@ project "SFML_ImGui"
    filter "system:windows"
         systemversion "latest"
         cppdialect "C++17"
-        staticruntime "On"
 
         files
         {
@@ -99,9 +98,10 @@ project "SFML_ImGui"
 
 
     filter "configurations:Debug"
+        systemversion "latest"
+        cppdialect "C++17"
         runtime "Debug"
-        symbols "on"
-        buildoptions "/MDd"
+        
         libdirs { "SFML/lib" }
 
         links 
@@ -126,8 +126,28 @@ project "SFML_ImGui"
       
     filter "configurations:Release"
         runtime "Release"
-        optimize "on"
-        buildoptions "/MD"
+        libdirs { "SFML/lib" }
+        links 
+        {
+            "sfml-system-s.lib",
+            "sfml-graphics-s.lib",
+            "sfml-audio-s.lib",
+            "sfml-window-s.lib",
+            "sfml-network-s.lib",
+            "openal32.lib",
+            "freetype.lib",
+            "winmm.lib",
+            "gdi32.lib",
+            "flac.lib",
+            "vorbisenc.lib",
+            "vorbisfile.lib",
+            "vorbis.lib",
+            "ogg.lib",
+            "ws2_32.lib"
+        }
+
+    filter "configurations:Dist"
+        runtime "Release"
         libdirs { "SFML/lib" }
         links 
         {
