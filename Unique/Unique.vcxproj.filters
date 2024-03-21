@@ -59,6 +59,8 @@
       <Filter>Unique</Filter>
     </ClInclude>
     <ClInclude Include="src\uqpch.h" />
+    <ClInclude Include="src\Unique\Input.h" />
+    <ClInclude Include="src\Unique\Platform\Windows\WindowsInput.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Unique\Application.cpp">
@@ -80,5 +82,6 @@
       <Filter>Unique\Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\uqpch.cpp" />
+    <ClCompile Include="src\Unique\Platform\Windows\WindowsInputcpp.cpp" />
   </ItemGroup>
 </Project>

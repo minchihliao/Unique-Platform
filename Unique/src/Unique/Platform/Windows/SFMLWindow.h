@@ -27,6 +27,8 @@ namespace Unique {
 
 		inline sf::RenderWindow& GetSFMLWindow() { return *m_Window; }
 
+		inline virtual void* GetNativeWindow() const { return m_Window; }
+
 		// Window attributes
 		inline void SetEventCallback(const EventCallbackFn& callback) override { m_Data.EventCallback = callback; }
 		void SetVSync(bool enabled) override;

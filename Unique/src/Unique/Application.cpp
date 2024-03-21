@@ -2,7 +2,7 @@
 #include "Application.h"
 #include "Unique/Events/ApplicationEvent.h"
 #include "Unique/Log.h"
-
+#include "Input.h"
 
 namespace Unique 
 {
@@ -70,6 +70,10 @@ namespace Unique
 					layer->OnUpdate();
 				}
 			}
+
+			auto [x, y] = Input::GetMousePosition();
+			UQ_CORE_TRACE("{0}, {1}",x,y);
+
 			m_Window->EndUpdate();
 		}
 		

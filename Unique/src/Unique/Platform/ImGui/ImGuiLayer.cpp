@@ -22,8 +22,8 @@ namespace Unique {
 	{
 		UQ_CORE_INFO("Attach ImGuiLayer");
 	
-		auto window = dynamic_cast<SFMLWindow*>(&Application::Get().GetWindow());
-		ImGui::SFML::Init(window->GetSFMLWindow());
+		auto window = static_cast<sf::RenderWindow*>(Application::Get().GetWindow().GetNativeWindow());
+		ImGui::SFML::Init(*window);
 		
 	}
 
@@ -34,22 +34,21 @@ namespace Unique {
 
 	void ImGuiLayer::OnUpdate()
 	{
-		UQ_CORE_INFO("ImGuiLayer Update");
-		auto window = dynamic_cast<SFMLWindow*>(&Application::Get().GetWindow());
-		ImGui::SFML::Update(window->GetSFMLWindow(), deltaClock.restart());
+		auto window = static_cast<sf::RenderWindow*>(Application::Get().GetWindow().GetNativeWindow());
+		ImGui::SFML::Update(*window, deltaClock.restart());
 		//Render ----
 		ImGui::Begin("Window title");
 		ImGui::Text("Window text!");
 		ImGui::End();
 		//---------
-		ImGui::SFML::Render(window->GetSFMLWindow());
+		ImGui::SFML::Render(*window);
 	}
 
 	void ImGuiLayer::OnEvent(Event& event)
 	{
 		sf::Event e;
-		auto window = dynamic_cast<SFMLWindow*>(&Application::Get().GetWindow());
-		while (window->GetSFMLWindow().pollEvent(e))
+		auto window = static_cast<sf::RenderWindow*>(Application::Get().GetWindow().GetNativeWindow());
+		while (window->pollEvent(e))
 		{
 			ImGui::SFML::ProcessEvent(e);
 		}
