@@ -9,14 +9,16 @@ namespace Unique {
 
 	Input* Input::s_Instance = new WindowsInput();
 
-	bool WindowsInput::IsKeyPressedImpl(sf::Keyboard::Key keycode)
+	bool WindowsInput::IsKeyPressedImpl(int keycode)
 	{
-		return sf::Keyboard::isKeyPressed(keycode);
+		
+		return sf::Keyboard::isKeyPressed(static_cast<sf::Keyboard::Key>(keycode));
 	}
 
-	bool WindowsInput::IsMouseButtonPressedImpl(sf::Mouse::Button button)
+	bool WindowsInput::IsMouseButtonPressedImpl(int button)
 	{
-		return  sf::Mouse::isButtonPressed(button);
+
+		return  sf::Mouse::isButtonPressed(static_cast<sf::Mouse::Button>(button));
 	}
 
 	std::pair<float, float> WindowsInput::GetMousePositionImpl()

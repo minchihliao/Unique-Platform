@@ -37,12 +37,9 @@ namespace Unique
 
 
 		m_Window = new sf::RenderWindow(sf::VideoMode((int)props.Width, (int)props.Height), m_Data.Title);
-		//ImGui::SFML::Init(*m_Window);
 		m_Window->setFramerateLimit(60);
-		//ImGui::SFML::Init(*m_Window);
-		//m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
-		//glfwMakeContextCurrent(m_Window);
-		//glfwSetWindowUserPointer(m_Window, &m_Data);
+		
+
 		//auto circle = std::make_shared<sf::CircleShape>(50);
 		//circle->setFillColor(sf::Color::Green);
 		//AddGameObject(circle);
@@ -51,7 +48,6 @@ namespace Unique
 
 	void SFMLWindow::Shutdown()
 	{
-		ImGui::SFML::Shutdown();
 		m_Window->close();
 	}
 
@@ -59,18 +55,9 @@ namespace Unique
 
 	void SFMLWindow::OnUpdate()
 	{
-		sf::Clock deltaClock;
 		if (m_Window->isOpen())
 		{
 			OnEvent();
-			/*ImGui::SFML::Update(*m_Window, deltaClock.restart());
-			ImGui::Begin("Window title");
-			ImGui::Text("Window text!");
-			ImGui::End();*/
-			
-			
-			/*ImGui::SFML::Render(*m_Window);*/
-			
 		}
 
 	}
@@ -107,7 +94,6 @@ namespace Unique
 		sf::Event event;
 		while (m_Window->pollEvent(event))
 		{
-			/*ImGui::SFML::ProcessEvent(event);*/
 			if (event.type == sf::Event::Resized) {
 				m_Data.Width = event.size.width;
 				m_Data.Height = event.size.height;

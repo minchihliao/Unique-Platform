@@ -2,8 +2,6 @@
 #include "Unique/Window.h"
 #include "SFML/Window/Window.hpp"
 #include "SFML/Graphics.hpp"
-#include "imgui.h"
-#include "imgui-SFML.h"
 
 namespace Unique {
 

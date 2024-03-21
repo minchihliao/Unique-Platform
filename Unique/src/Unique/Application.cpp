@@ -42,7 +42,7 @@ namespace Unique
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
 
-		UQ_CORE_TRACE("{0}", e);
+		//UQ_CORE_TRACE("{0}", e);
 
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
 		{
@@ -59,7 +59,7 @@ namespace Unique
 		{
 			m_Window->BegineUpdate();
 			for (Layer* layer : m_LayerStack) {
-				if (!layer->GetType() == LayerType::ImGui) {
+				if (layer->GetType() != LayerType::ImGui) {
 					layer->OnUpdate();
 				}
 			}
@@ -71,8 +71,8 @@ namespace Unique
 				}
 			}
 
-			auto [x, y] = Input::GetMousePosition();
-			UQ_CORE_TRACE("{0}, {1}",x,y);
+			//auto [x, y] = Input::GetMousePosition();
+			//UQ_CORE_TRACE("{0}, {1}",x,y);
 
 			m_Window->EndUpdate();
 		}

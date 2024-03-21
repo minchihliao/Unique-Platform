@@ -16,12 +16,12 @@ namespace Unique {
 
 	ImGuiLayer::~ImGuiLayer()
 	{
+		ImGui::SFML::Shutdown();
 	}
 
 	void ImGuiLayer::OnAttach()
 	{
 		UQ_CORE_INFO("Attach ImGuiLayer");
-	
 		auto window = static_cast<sf::RenderWindow*>(Application::Get().GetWindow().GetNativeWindow());
 		ImGui::SFML::Init(*window);
 		

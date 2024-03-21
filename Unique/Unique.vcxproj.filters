@@ -61,6 +61,8 @@
     <ClInclude Include="src\uqpch.h" />
     <ClInclude Include="src\Unique\Input.h" />
     <ClInclude Include="src\Unique\Platform\Windows\WindowsInput.h" />
+    <ClInclude Include="src\Unique\KeyCodes.h" />
+    <ClInclude Include="src\Unique\MouseButtonCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Unique\Application.cpp">

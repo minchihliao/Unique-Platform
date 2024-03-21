@@ -152,9 +152,11 @@
     <ClInclude Include="src\Unique\Events\KeyEvent.h" />
     <ClInclude Include="src\Unique\Events\MouseEvent.h" />
     <ClInclude Include="src\Unique\Input.h" />
+    <ClInclude Include="src\Unique\KeyCodes.h" />
     <ClInclude Include="src\Unique\Layer.h" />
     <ClInclude Include="src\Unique\LayerStack.h" />
     <ClInclude Include="src\Unique\Log.h" />
+    <ClInclude Include="src\Unique\MouseButtonCodes.h" />
     <ClInclude Include="src\Unique\Platform\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Unique\Platform\Windows\SFMLWindow.h" />
     <ClInclude Include="src\Unique\Platform\Windows\WindowsInput.h" />
