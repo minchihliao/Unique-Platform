@@ -1,11 +1,6 @@
 [submodule "Unique/vendor/spdlog"]
 	path = Unique/vendor/spdlog
 	url = https://github.com/gabime/spdlog
-[submodule "Unique/vendor/imgui"]
-	path = Unique/vendor/imgui
-	url = https://github.com/minchihliao/imgui.git
-	branch = SFML
-[submodule "Unique/vendor/SFML2.6"]
-	path = Unique/vendor/SFML2.6
-	url = https://github.com/minchihliao/SFML.git
-	branch = 2.6.x
+[submodule "Unique/vendor/glm"]
+	path = Unique/vendor/glm
+	url = https://github.com/g-truc/glm.git

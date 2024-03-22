@@ -11,7 +11,7 @@ configurations
 Outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["SFML_ImGui"] = "Unique/vendor/SFML_Imgui"
-
+IncludeDir["glm"] = "Unique/vendor/glm"
 
 group "Dependencies"
     include "Unique/vendor/SFML_Imgui"
@@ -33,7 +33,9 @@ project "Unique"
     files
     {
         "%{prj.name}/src/**.h",
-        "%{prj.name}/src/**.cpp"
+        "%{prj.name}/src/**.cpp",
+        "%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl",
     }
 
     includedirs
@@ -42,7 +44,8 @@ project "Unique"
         "%{prj.name}/vendor/spdlog/include",
         "%{IncludeDir.SFML_ImGui}/Imgui",
         "%{IncludeDir.SFML_ImGui}/SFML/include",
-        "%{IncludeDir.SFML_ImGui}/SFML/src"
+        "%{IncludeDir.SFML_ImGui}/SFML/src",
+        "%{IncludeDir.glm}"
     }
 
     links 
@@ -102,7 +105,8 @@ project "SpaceShooter"
         "Unique/vendor/spdlog/include",
         "Unique/src",
         "Unique/vendor/SFML/include",
-        "Unique/vendor/imgui"
+        "Unique/vendor/imgui",
+        "%{IncludeDir.glm}"
     }
 
     links
@@ -170,7 +174,8 @@ project "UniquePlatform"
       includedirs
     {
         "Unique/vendor/spdlog/include",
-        "Unique/src;"
+        "Unique/src",
+        "%{IncludeDir.glm}"
     }
 
     links
