@@ -9,7 +9,7 @@
 #include "Unique/Application.h"
 #include "Unique/Layer.h"
 #include "Unique/Log.h"
-#include "Unique/Platform/ImGui/ImGuiLayer.h"
+#include "Unique/Platform/SFML/ImGuiLayer.h"
 
 #include "Unique/Input.h"
 #include "Unique/KeyCodes.h"

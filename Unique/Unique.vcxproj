@@ -157,7 +157,7 @@
     <ClInclude Include="src\Unique\LayerStack.h" />
     <ClInclude Include="src\Unique\Log.h" />
     <ClInclude Include="src\Unique\MouseButtonCodes.h" />
-    <ClInclude Include="src\Unique\Platform\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Unique\Platform\SFML\ImGuiLayer.h" />
     <ClInclude Include="src\Unique\Platform\Windows\SFMLWindow.h" />
     <ClInclude Include="src\Unique\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Unique\Window.h" />
@@ -584,7 +584,7 @@
     <ClCompile Include="src\Unique\Layer.cpp" />
     <ClCompile Include="src\Unique\LayerStack.cpp" />
     <ClCompile Include="src\Unique\Log.cpp" />
-    <ClCompile Include="src\Unique\Platform\ImGui\ImGuiLayer.cpp" />
+    <ClCompile Include="src\Unique\Platform\SFML\ImGuiLayer.cpp" />
     <ClCompile Include="src\Unique\Platform\Windows\SFMLWindow.cpp" />
     <ClCompile Include="src\Unique\Platform\Windows\WindowsInputcpp.cpp" />
     <ClCompile Include="src\uqpch.cpp">
