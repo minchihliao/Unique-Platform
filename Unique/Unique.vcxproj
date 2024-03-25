@@ -161,6 +161,8 @@
     <ClInclude Include="src\Unique\Platform\Windows\SFMLWindow.h" />
     <ClInclude Include="src\Unique\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Unique\Renderer\Renderer2D.h" />
+    <ClInclude Include="src\Unique\Platform\SFML\SFMLTexture2D.h" />
+    <ClInclude Include="src\Unique\Renderer\Texture.h" />
     <ClInclude Include="src\Unique\Timestep.h" />
     <ClInclude Include="src\Unique\Window.h" />
     <ClInclude Include="src\uqpch.h" />
@@ -590,6 +592,8 @@
     <ClCompile Include="src\Unique\Platform\Windows\SFMLWindow.cpp" />
     <ClCompile Include="src\Unique\Platform\Windows\WindowsInputcpp.cpp" />
     <ClCompile Include="src\Unique\Renderer\Renderer2D.cpp" />
+    <ClCompile Include="src\Unique\Platform\SFML\SFMLTexture2D.cpp" />
+    <ClCompile Include="src\Unique\Renderer\Texture.cpp" />
     <ClCompile Include="src\uqpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>

@@ -24,5 +24,10 @@
 
 #include "Unique/ImGui/ImGuiLayer.h"
 
-#include "Unique/Renderer/Renderer2D.h"
 
+// ---Renderer------------------------
+#include "Unique/Renderer/Renderer2D.h"
+#include "Unique/Renderer/Texture.h"
+#include "Unique/Platform/SFML/SFMLTexture2D.h"
+
+// -----------------------------------

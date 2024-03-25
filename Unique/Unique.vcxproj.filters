@@ -1354,6 +1354,8 @@
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
     <ClInclude Include="src\Unique\Timestep.h" />
+    <ClInclude Include="src\Unique\Renderer\Texture.h" />
+    <ClInclude Include="src\Unique\Platform\SFML\SFMLTexture2D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Unique\Application.cpp">
@@ -1383,5 +1385,7 @@
     <ClCompile Include="src\uqpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Unique\Renderer\Texture.cpp" />
+    <ClCompile Include="src\Unique\Platform\SFML\SFMLTexture2D.cpp" />
   </ItemGroup>
 </Project>

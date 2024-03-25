@@ -1,5 +1,6 @@
 #include "uqpch.h"
 #include "Renderer2D.h"
+
 #include "Unique/Application.h"
 
 void Unique::Renderer2D::DrawCirclue(float size, sf::Vector2f position, sf::Color color)
@@ -38,11 +39,12 @@ void Unique::Renderer2D::DrawConvex(std::vector<sf::Vector2f>& vertexs, sf::Vect
 
 
 
-void Unique::Renderer2D::DrawSprite(sf::Vector2f size, sf::Vector2f position, Ref<sf::Texture>& texture)
+void Unique::Renderer2D::DrawSprite(sf::Vector2f size, sf::Vector2f position, Ref<Unique::SFMLTexture> texture)
 {
 	auto window = static_cast<sf::RenderWindow*>(Application::Get().GetWindow().GetNativeWindow());
 	sf::Sprite sprite;
-	sprite.setTexture(*texture);
+	sf::Texture* data = static_cast<sf::Texture*>(texture->GetData());
+	sprite.setTexture(*data);
 	sprite.setScale(size);
 	sprite.setPosition(position);
 	window->draw(sprite);
