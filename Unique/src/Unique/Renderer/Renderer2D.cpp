@@ -39,7 +39,7 @@ void Unique::Renderer2D::DrawConvex(std::vector<sf::Vector2f>& vertexs, sf::Vect
 
 
 
-void Unique::Renderer2D::DrawSprite(sf::Vector2f size, sf::Vector2f position, Ref<Unique::SFMLTexture> texture)
+void Unique::Renderer2D::DrawSprite(sf::Vector2f size, sf::Vector2f position, Ref<Unique::Texture2D> texture)
 {
 	auto window = static_cast<sf::RenderWindow*>(Application::Get().GetWindow().GetNativeWindow());
 	sf::Sprite sprite;

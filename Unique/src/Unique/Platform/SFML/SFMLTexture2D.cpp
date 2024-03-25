@@ -1,6 +1,6 @@
 #include "uqpch.h"
 #include "SFMLTexture2D.h"
-#include "Unique/Core.h"
+
 namespace Unique 
 {
 	SFMLTexture::SFMLTexture(const std::string& path)
@@ -18,11 +18,6 @@ namespace Unique
 	SFMLTexture::~SFMLTexture()
 	{
 		m_Texture->~Texture();
-	}
-
-	Ref<SFMLTexture> SFMLTexture::Create(const std::string& path)
-	{
-		return  CreateRef<SFMLTexture>(path);
 	}
 
 }

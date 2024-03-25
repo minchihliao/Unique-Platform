@@ -16,5 +16,11 @@ namespace Unique
 		virtual void* GetData() const = 0;
 	};
 
+	class Texture2D : public Texture
+	{
+	public:
+		virtual void* GetData() const = 0;
+		static Ref<Texture2D> Create(const std::string& path);
+	};
 
 }
