@@ -6,7 +6,6 @@
 
 
 
-
 namespace Unique {
 
 	ImGuiLayer::ImGuiLayer()
@@ -14,10 +13,6 @@ namespace Unique {
 	{
 	}
 
-	ImGuiLayer::~ImGuiLayer()
-	{
-		ImGui::SFML::Shutdown();
-	}
 
 	void ImGuiLayer::OnAttach()
 	{
@@ -29,19 +24,29 @@ namespace Unique {
 
 	void ImGuiLayer::OnDetach()
 	{
-
 	}
 
-	void ImGuiLayer::OnUpdate()
+	void ImGuiLayer::Begin()
 	{
 		auto window = static_cast<sf::RenderWindow*>(Application::Get().GetWindow().GetNativeWindow());
 		ImGui::SFML::Update(*window, deltaClock.restart());
+	}
+
+	void ImGuiLayer::End()
+	{
+		auto window = static_cast<sf::RenderWindow*>(Application::Get().GetWindow().GetNativeWindow());
+		ImGui::SFML::Render(*window);
+	}
+
+
+	void ImGuiLayer::OnImGuiRender()
+	{
 		//Render ----
 		ImGui::Begin("Window title");
 		ImGui::Text("Window text!");
 		ImGui::End();
 		//---------
-		ImGui::SFML::Render(*window);
+		
 	}
 
 	void ImGuiLayer::OnEvent(Event& event)

@@ -1,6 +1,5 @@
 #pragma once
 #include "Unique/Layer.h"
-#include "Unique/Application.h"
 #include "Unique/Platform/Windows/SFMLWindow.h"
 
 #include "imgui.h"
@@ -12,11 +11,12 @@ namespace Unique {
 	{
 		public:
 			ImGuiLayer();
-			~ImGuiLayer();
-			virtual LayerType GetType() const { return LayerType::ImGui; }
-			void OnAttach();
-			void OnDetach();
-			void OnUpdate();
+			~ImGuiLayer() = default;
+			virtual void OnAttach() override;
+			virtual void OnDetach() override;
+			void Begin();
+			void End();
+			virtual void OnImGuiRender() override;
 			void OnEvent(Event& event);
 		private:
 			float m_Time = 0.0f;

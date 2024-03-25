@@ -32,9 +32,8 @@
 
 #define BIT(x) (1 << x)
 
-namespace Unique 
+namespace Unique
 {
-
 	template<typename T>
 	using Ref = std::shared_ptr<T>;
 
