@@ -13,6 +13,10 @@ namespace Unique {
 	{
 	}
 
+	ImGuiLayer::~ImGuiLayer()
+	{
+	}
+
 
 	void ImGuiLayer::OnAttach()
 	{
@@ -42,9 +46,6 @@ namespace Unique {
 	void ImGuiLayer::OnImGuiRender()
 	{
 		//Render ----
-		ImGui::Begin("Window title");
-		ImGui::Text("Window text!");
-		ImGui::End();
 		//---------
 		
 	}

@@ -6,6 +6,7 @@
 
 #include <stdio.h>
 
+#include "Unique/Core.h"
 #include "Unique/Application.h"
 #include "Unique/Layer.h"
 #include "Unique/Log.h"
@@ -18,8 +19,6 @@
 #include "Unique/KeyCodes.h"
 
 #include "Unique/Events/KeyEvent.h"
+#include "Unique/Events/MouseEvent.h"
 
 
-//--- Entry Point ---------------------
-#include "Unique/EntryPoint.h"
-//-------------------------------------

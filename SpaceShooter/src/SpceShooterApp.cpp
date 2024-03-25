@@ -1,4 +1,9 @@
 #include <Unique.h>
+//--- Entry Point ---------------------
+#include "Unique/EntryPoint.h"
+//-------------------------------------
+
+#include "GameLayer.h"
 
 class ExampleLayer : public Unique::Layer
 {
@@ -36,8 +41,7 @@ class SpaceShooter : public Unique::Application
 public:
 	SpaceShooter() 
 	{
-		PushLayer(new ExampleLayer());
-		PushLayer(new Unique::ImGuiLayer());
+		PushLayer(new GameLayer());
 	}
 	~SpaceShooter() 
 	{

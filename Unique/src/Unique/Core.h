@@ -32,6 +32,9 @@
 
 #define BIT(x) (1 << x)
 
+
+#define UQ_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)
+
 namespace Unique
 {
 	template<typename T>

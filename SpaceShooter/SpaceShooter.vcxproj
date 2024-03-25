@@ -134,12 +134,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\GameLayer.cpp" />
     <ClCompile Include="src\SpceShooterApp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Unique\Unique.vcxproj">
       <Project>{9C8D27D6-882F-52AC-71EA-65005D2BD9FC}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\GameLayer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

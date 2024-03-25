@@ -11,7 +11,7 @@ namespace Unique {
 	{
 		public:
 			ImGuiLayer();
-			~ImGuiLayer() = default;
+			~ImGuiLayer();
 			virtual void OnAttach() override;
 			virtual void OnDetach() override;
 			void Begin();
