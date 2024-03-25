@@ -10,7 +10,8 @@
 #include "Unique/Application.h"
 #include "Unique/Layer.h"
 #include "Unique/Log.h"
-#include "Unique/ImGui/ImGuiLayer.h"
+
+#include "Unique/Timestep.h"
 
 #include "Unique/Input.h"
 #include "Unique/KeyCodes.h"
@@ -21,4 +22,7 @@
 #include "Unique/Events/KeyEvent.h"
 #include "Unique/Events/MouseEvent.h"
 
+#include "Unique/ImGui/ImGuiLayer.h"
+
+#include "Unique/Renderer/Renderer2D.h"
 

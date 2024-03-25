@@ -2,29 +2,48 @@
 #include "Renderer2D.h"
 #include "Unique/Application.h"
 
-void Unique::Renderer2D::Draw(sf::Shape& shape, sf::Vector2f size, sf::Vector2f position, sf::Color color)
+void Unique::Renderer2D::DrawCirclue(float size, sf::Vector2f position, sf::Color color)
 {
 	auto window = static_cast<sf::RenderWindow*>(Application::Get().GetWindow().GetNativeWindow());
-	shape.setScale(size);
-	shape.setPosition(position);
-	shape.setFillColor(color);
-	window->draw(shape);
+	sf::CircleShape circle;
+	circle.setRadius(size);
+	circle.setPosition(position);
+	circle.setFillColor(color);
+	window->draw(circle);
 }
 
-void Unique::Renderer2D::Draw(sf::Text& text, sf::Vector2f size, sf::Vector2f position, sf::Color color)
+void Unique::Renderer2D::DrawRectangle(sf::Vector2f size, sf::Vector2f position, sf::Color color)
 {
 	auto window = static_cast<sf::RenderWindow*>(Application::Get().GetWindow().GetNativeWindow());
-	text.setScale(size);
-	text.setPosition(position);
-	text.setFillColor(color);
-	window->draw(text);
+	sf::RectangleShape rectangle;
+	rectangle.setSize(size);
+	rectangle.setFillColor(color);
+	rectangle.setPosition(position);
+	window->draw(rectangle);
 }
 
-void Unique::Renderer2D::Draw(sf::Sprite& shape, sf::Vector2f size, sf::Vector2f position, Ref<sf::Texture>& texture)
+void Unique::Renderer2D::DrawConvex(std::vector<sf::Vector2f>& vertexs, sf::Vector2f position, sf::Color color)
 {
 	auto window = static_cast<sf::RenderWindow*>(Application::Get().GetWindow().GetNativeWindow());
-	shape.setTexture(*texture);
-	shape.setScale(size);
-	shape.setPosition(position);
-	window->draw(shape);
+	sf::ConvexShape polygon;
+	polygon.setPointCount(vertexs.size());
+	for (auto vertex : vertexs)
+	{
+		polygon.setPosition(vertex);
+	}
+	polygon.setFillColor(color);
+	polygon.setPosition(position);
+	window->draw(polygon);
+}
+
+
+
+void Unique::Renderer2D::DrawSprite(sf::Vector2f size, sf::Vector2f position, Ref<sf::Texture>& texture)
+{
+	auto window = static_cast<sf::RenderWindow*>(Application::Get().GetWindow().GetNativeWindow());
+	sf::Sprite sprite;
+	sprite.setTexture(*texture);
+	sprite.setScale(size);
+	sprite.setPosition(position);
+	window->draw(sprite);
 }

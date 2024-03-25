@@ -46,6 +46,9 @@ void GameLayer::OnUpdate()
 	//Hazel::Renderer2D::BeginScene(*m_Camera);
 	//m_Level.OnRender();
 	//Hazel::Renderer2D::EndScene();
+
+	Unique::Renderer2D::DrawCirclue(20, sf::Vector2f(20, 20), sf::Color::Green);
+
 }
 
 void GameLayer::OnImGuiRender()

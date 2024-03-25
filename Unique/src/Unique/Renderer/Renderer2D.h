@@ -9,9 +9,10 @@ namespace Unique
 	{
 	public:
 		
-		static void Draw(sf::Shape& shape, sf::Vector2f size, sf::Vector2f position,sf::Color color);
-		static void Draw(sf::Text& text, sf::Vector2f size, sf::Vector2f position,sf::Color color);
-		static void Draw(sf::Sprite& shape, sf::Vector2f size,sf::Vector2f position,Ref<sf::Texture>& texture);
+		static void DrawCirclue(float size, sf::Vector2f position,sf::Color color);
+		static void DrawRectangle(sf::Vector2f size, sf::Vector2f position,sf::Color color);
+		static void DrawConvex(std::vector<sf::Vector2f>& vertexs, sf::Vector2f position,sf::Color color);
+		static void DrawSprite(sf::Vector2f size,sf::Vector2f position,Ref<sf::Texture>& texture);
 	};
 
 }
