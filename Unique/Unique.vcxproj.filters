@@ -13,8 +13,8 @@
     <Filter Include="src\Unique\Platform">
       <UniqueIdentifier>{87007DB0-F361-5ABE-7CCF-A070E82F917D}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Unique\Platform\ImGui">
-      <UniqueIdentifier>{F17E3B65-5D41-6FEF-A6F1-FD7B12F347CD}</UniqueIdentifier>
+    <Filter Include="src\Unique\Platform\SFML">
+      <UniqueIdentifier>{08A406C5-F4C8-5545-1D14-3BD509985463}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Unique\Platform\Windows">
       <UniqueIdentifier>{C1412AD1-2D4F-58B7-B635-54A22242246E}</UniqueIdentifier>
@@ -84,8 +84,8 @@
     <ClInclude Include="src\Unique\MouseButtonCodes.h">
       <Filter>src\Unique</Filter>
     </ClInclude>
-    <ClInclude Include="src\Unique\Platform\ImGui\ImGuiLayer.h">
-      <Filter>src\Unique\Platform\ImGui</Filter>
+    <ClInclude Include="src\Unique\Platform\SFML\ImGuiLayer.h">
+      <Filter>src\Unique\Platform\SFML</Filter>
     </ClInclude>
     <ClInclude Include="src\Unique\Platform\Windows\SFMLWindow.h">
       <Filter>src\Unique\Platform\Windows</Filter>
@@ -1347,6 +1347,7 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
+    <ClInclude Include="src\Unique\Renderer\Renderer2D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Unique\Application.cpp">
@@ -1361,8 +1362,8 @@
     <ClCompile Include="src\Unique\Log.cpp">
       <Filter>src\Unique</Filter>
     </ClCompile>
-    <ClCompile Include="src\Unique\Platform\ImGui\ImGuiLayer.cpp">
-      <Filter>src\Unique\Platform\ImGui</Filter>
+    <ClCompile Include="src\Unique\Platform\SFML\ImGuiLayer.cpp">
+      <Filter>src\Unique\Platform\SFML</Filter>
     </ClCompile>
     <ClCompile Include="src\Unique\Platform\Windows\SFMLWindow.cpp">
       <Filter>src\Unique\Platform\Windows</Filter>
@@ -1373,5 +1374,6 @@
     <ClCompile Include="src\uqpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Unique\Renderer\Renderer2D.cpp" />
   </ItemGroup>
 </Project>

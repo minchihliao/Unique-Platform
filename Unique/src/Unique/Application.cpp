@@ -67,14 +67,12 @@ namespace Unique
 			}
 				
 			m_Window->Render();
+
 			for (Layer* layer : m_LayerStack) {
 				if (layer->GetType()==LayerType::ImGui) {
 					layer->OnUpdate();
 				}
 			}
-
-			//auto [x, y] = Input::GetMousePosition();
-			//UQ_CORE_TRACE("{0}, {1}",x,y);
 
 			m_Window->EndUpdate();
 		}

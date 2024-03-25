@@ -39,6 +39,9 @@
     <ClInclude Include="Imgui\imgui-SFML.h">
       <Filter>Imgui</Filter>
     </ClInclude>
+    <ClInclude Include="Imgui\imgui-SFML_export.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
     <ClInclude Include="Imgui\imgui.h">
       <Filter>Imgui</Filter>
     </ClInclude>
@@ -398,10 +401,5 @@
     <ClCompile Include="Imgui\imgui_widgets.cpp">
       <Filter>Imgui</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Imgui\imgui-SFML_export">
-      <Filter>Imgui</Filter>
-    </None>
   </ItemGroup>
 </Project>

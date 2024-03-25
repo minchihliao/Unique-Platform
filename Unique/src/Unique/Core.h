@@ -1,11 +1,16 @@
 #pragma once
+#include <memory>
 
 #ifdef UQ_PLAFORM_WINDOWS
+#if UQ_DYNAMIC_LINK
 	#ifdef UQ_BULD_DLL
 		#define UNIQUE_API __declspec(dllexport)
 	#else
 		#define UNIQUE_API __declspec(dllimport)
 	#endif
+#else
+	#define UNIQUE_API
+#endif
 #else
 	#error Unique only supports Windos!
 #endif // UQ_PLAFORM_WINDOWS
@@ -26,3 +31,11 @@
 
 
 #define BIT(x) (1 << x)
+
+namespace Unique 
+{
+
+	template<typename T>
+	using Ref = std::shared_ptr<T>;
+
+}

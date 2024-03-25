@@ -1,8 +1,9 @@
 project "SFML_ImGui"
     kind "StaticLib"
     language "C++"
+    cppdialect "C++17"
     staticruntime "off"
-
+    
     targetdir ("bin/" .. Outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. Outputdir .. "/%{prj.name}")
 
@@ -25,7 +26,7 @@ project "SFML_ImGui"
         "Imgui/imgui_tables.cpp",
         "Imgui/imgui-SFML.cpp",
         "Imgui/imgui-SFML.h",
-        "Imgui/imgui-SFML_export",
+        "Imgui/imgui-SFML_export.h",
         "Imgui/imgui_widgets.cpp",
         "Imgui/imstb_rectpack.h",
         "Imgui/imstb_textedit.h",
@@ -44,11 +45,8 @@ project "SFML_ImGui"
     -- Windows 平台設定
    filter "system:windows"
         systemversion "latest"
-        cppdialect "C++17"
-
         files
         {
-
             "SFML/src/SFML/Window/Win32/**.cpp",
             "SFML/src/SFML/Window/Win32/**.hpp",
             "SFML/src/SFML/Window/*.cpp",
@@ -99,7 +97,6 @@ project "SFML_ImGui"
 
     filter "configurations:Debug"
         systemversion "latest"
-        cppdialect "C++17"
         runtime "Debug"
         
         libdirs { "SFML/lib" }
@@ -125,28 +122,6 @@ project "SFML_ImGui"
         }
       
     filter "configurations:Release"
-        runtime "Release"
-        libdirs { "SFML/lib" }
-        links 
-        {
-            "sfml-system-s.lib",
-            "sfml-graphics-s.lib",
-            "sfml-audio-s.lib",
-            "sfml-window-s.lib",
-            "sfml-network-s.lib",
-            "openal32.lib",
-            "freetype.lib",
-            "winmm.lib",
-            "gdi32.lib",
-            "flac.lib",
-            "vorbisenc.lib",
-            "vorbisfile.lib",
-            "vorbis.lib",
-            "ogg.lib",
-            "ws2_32.lib"
-        }
-
-    filter "configurations:Dist"
         runtime "Release"
         libdirs { "SFML/lib" }
         links 

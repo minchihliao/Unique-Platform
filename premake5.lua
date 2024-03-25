@@ -19,9 +19,10 @@ group "Dependencies"
 group ""
 project "Unique"
     location "Unique"
-    kind "SharedLib"
+    kind "StaticLib"
     language "C++"
-    staticruntime "off"
+    cppdialect "C++17"
+	staticruntime "off"
 
     targetdir("bin/" .. Outputdir .. "/%{prj.name}")
     objdir("bin-int/" .. Outputdir .. "/%{prj.name}")
@@ -55,14 +56,13 @@ project "Unique"
     }
 
     filter "system:windows"
-        cppdialect "C++17"
         systemversion "latest"
 
         defines
         {
-             "UQ_BULD_DLL",
              "UQ_PLAFORM_WINDOWS",
-             "SFML_STATIC"
+             "SFML_STATIC",
+             "_SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING"
         }
 
 
@@ -70,27 +70,28 @@ project "Unique"
     filter "configurations:Debug"
         defines "UQ_DEBUG"
         runtime "Debug"
-        symbols "On"
+        symbols "on"
 		
 
 
     filter "configurations:Release"
         defines "UQ_RELEASE"
         runtime "Release"
-        optimize "On"
+        optimize "on"
 
 
     filter "configurations:Dist"
         defines "UQ_DIST"
         runtime "Release"
-        optimize "On"
+        optimize "on"
 
 
 project "SpaceShooter"
     location "SpaceShooter"
     kind "ConsoleApp"
     language "C++"
-    staticruntime "off"
+    cppdialect "C++17"
+	staticruntime "off"
 
     targetdir("bin/" .. Outputdir .. "/%{prj.name}")
     objdir("bin-int/" .. Outputdir .. "/%{prj.name}")
@@ -114,15 +115,8 @@ project "SpaceShooter"
         "Unique"
     }
 
-    postbuildcommands
-    {
-        ("{COPY} ../bin/" .. Outputdir .. "/Unique/Unique.dll %{cfg.targetdir}")
-        
-    }
-
 
     filter "system:windows"
-        cppdialect "C++17"
         systemversion "latest"
 
         defines
@@ -133,25 +127,26 @@ project "SpaceShooter"
     filter "configurations:Debug"
         defines "UQ_DEBUG"
         runtime "Debug"
-        symbols "On"
+        symbols "on"
 
        
     filter "configurations:Release"
         defines "UQ_RELEASE"
         runtime "Release"
-        optimize "On"
+        optimize "on"
 
     filter "configurations:Dist"
         defines "UQ_DIST"
         runtime "Release"
-        optimize "On"
+        optimize "on"
 
 
 project "UniquePlatform"
     location "UniquePlatform"
     kind "ConsoleApp"
     language "C++"
-    staticruntime "off"
+    cppdialect "C++17"
+	staticruntime "off"
 
     targetdir("bin/" .. Outputdir .. "/%{prj.name}")
     objdir("bin-int/" .. Outputdir .. "/%{prj.name}")
@@ -182,7 +177,6 @@ project "UniquePlatform"
     }
 
     filter "system:windows"
-        cppdialect "C++17"
         systemversion "latest"
 
         defines
@@ -192,17 +186,15 @@ project "UniquePlatform"
 
     filter "configurations:Debug"
         defines "UQ_DEBUG"
-
         runtime "Debug"
-        symbols "On"
+        symbols "on"
 
     filter "configurations:Release"
         defines "UQ_RELEASE"
-
         runtime "Release"
-        optimize "On"
+        optimize "on"
 
     filter "configurations:Dist"
         defines "UQ_DIST"
         runtime "Release"
-        optimize "On"
+        optimize "on"
