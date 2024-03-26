@@ -134,6 +134,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Gameflow\GameflowEndGameState.cpp" />
+    <ClCompile Include="src\Gameflow\GameflowGameState.cpp" />
+    <ClCompile Include="src\Gameflow\GameflowInitState.cpp" />
+    <ClCompile Include="src\Gameflow\GameflowMenuState.cpp" />
+    <ClCompile Include="src\Gameflow\GameFlowStateMachine.cpp" />
     <ClCompile Include="src\GameLayer.cpp" />
     <ClCompile Include="src\Level.cpp" />
     <ClCompile Include="src\Player.cpp" />
@@ -145,6 +150,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Gameflow\GameflowEndGameState.h" />
+    <ClInclude Include="src\Gameflow\GameflowGameState.h" />
+    <ClInclude Include="src\Gameflow\GameflowInitState.h" />
+    <ClInclude Include="src\Gameflow\GameflowMenuState.h" />
+    <ClInclude Include="src\Gameflow\GameFlowState.h" />
+    <ClInclude Include="src\Gameflow\GameFlowStateMachine.h" />
     <ClInclude Include="src\GameLayer.h" />
     <ClInclude Include="src\Level.h" />
     <ClInclude Include="src\Player.h" />

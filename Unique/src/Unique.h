@@ -24,10 +24,14 @@
 
 #include "Unique/ImGui/ImGuiLayer.h"
 
+//---FSM---------------------------------------
+#include "Unique/StateMachine/State.h"
+#include "Unique/StateMachine/StateMachine.h"
+//---------------------------------------------
 
-// ---Renderer------------------------
+
+// ---Renderer----------------------------------
 #include "Unique/Renderer/Renderer2D.h"
 #include "Unique/Renderer/Texture.h"
 #include "Unique/Platform/SFML/SFMLTexture2D.h"
-
-// -----------------------------------
+// ---------------------------------------------

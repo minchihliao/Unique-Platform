@@ -1356,6 +1356,8 @@
     <ClInclude Include="src\Unique\Timestep.h" />
     <ClInclude Include="src\Unique\Renderer\Texture.h" />
     <ClInclude Include="src\Unique\Platform\SFML\SFMLTexture2D.h" />
+    <ClInclude Include="src\Unique\StateMachine\State.h" />
+    <ClInclude Include="src\Unique\StateMachine\StateMachine.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Unique\Application.cpp">
