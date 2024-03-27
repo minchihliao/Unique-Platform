@@ -62,7 +62,7 @@ namespace Unique
 		{
 			m_Window->BegineUpdate();
 			for (Layer* layer : m_LayerStack) {
-					layer->OnUpdate();
+				layer->OnUpdate();
 			}
 				
 			m_Window->Render();

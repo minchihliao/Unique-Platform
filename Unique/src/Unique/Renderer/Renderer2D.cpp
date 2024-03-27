@@ -49,3 +49,10 @@ void Unique::Renderer2D::DrawSprite(sf::Vector2f size, sf::Vector2f position, Re
 	sprite.setPosition(position);
 	window->draw(sprite);
 }
+
+void Unique::Renderer2D::DrawSprite(Sprite sprite, sf::Vector2f position)
+{
+	auto window = static_cast<sf::RenderWindow*>(Application::Get().GetWindow().GetNativeWindow());
+	sprite.SetPosition(position);
+	window->draw(sprite.GetSFMLSprit());
+}

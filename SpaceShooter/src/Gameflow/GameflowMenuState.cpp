@@ -6,7 +6,15 @@ void GameflowMenuState::Enter(GameLayer* layer)
 	layer->GetFlowStateMachine()->ChangeState(GameFlowState::Game);
 }
 
-void GameflowMenuState::Update(GameLayer* layer)
+void GameflowMenuState::OnUpdate(GameLayer* layer)
+{
+}
+
+void GameflowMenuState::OnRender(GameLayer* layer)
+{
+}
+
+void GameflowMenuState::OnImGuiRender(GameLayer* layer)
 {
 }
 

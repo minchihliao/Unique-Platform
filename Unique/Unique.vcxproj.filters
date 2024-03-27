@@ -1358,6 +1358,7 @@
     <ClInclude Include="src\Unique\Platform\SFML\SFMLTexture2D.h" />
     <ClInclude Include="src\Unique\StateMachine\State.h" />
     <ClInclude Include="src\Unique\StateMachine\StateMachine.h" />
+    <ClInclude Include="src\Unique\Sprite.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Unique\Application.cpp">
@@ -1389,5 +1390,6 @@
     </ClCompile>
     <ClCompile Include="src\Unique\Renderer\Texture.cpp" />
     <ClCompile Include="src\Unique\Platform\SFML\SFMLTexture2D.cpp" />
+    <ClCompile Include="src\Unique\Sprite.cpp" />
   </ItemGroup>
 </Project>

@@ -20,18 +20,20 @@ void GameLayer::OnDetach()
 
 void GameLayer::OnUpdate()
 {
-	Unique::Ref<Unique::Texture2D> enemy = Unique::SFMLTexture::Create("assets/textures/enemy.png");
-	Unique::Renderer2D::DrawSprite(sf::Vector2f(0.1, 0.1), sf::Vector2f(200, 200), enemy);
-	Unique::Renderer2D::DrawCirclue(20, sf::Vector2f(20, 20), sf::Color::Green);
+	/*Unique::Ref<Unique::Texture2D> enemy = Unique::SFMLTexture::Create("assets/textures/enemy.png");
 	
-	m_GameFlowStateMachine->Update();
+	Unique::Renderer2D::DrawCirclue(20, sf::Vector2f(20, 20), sf::Color::Green);*/
+	
+	m_GameFlowStateMachine->OnUpdate();
+	m_GameFlowStateMachine->OnRender();
 }
 
 void GameLayer::OnImGuiRender()
 {
-	ImGui::Begin("Window");
+	/*ImGui::Begin("Window");
 	ImGui::Text("Window text!");
-	ImGui::End();
+	ImGui::End();*/
+	m_GameFlowStateMachine->OnImGuiRender();
 }
 
 void GameLayer::OnEvent(Unique::Event& e)

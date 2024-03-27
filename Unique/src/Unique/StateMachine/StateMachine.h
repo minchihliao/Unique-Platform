@@ -51,12 +51,23 @@ namespace Unique
 			}
 		}
 
-		inline virtual void Update() 
+		inline virtual void OnUpdate() 
 		{
 			if (m_CurrentState)
-				m_CurrentState->Update(m_Owner);
+				m_CurrentState->OnUpdate(m_Owner);
 		}
 
+		inline virtual void OnRender()
+		{
+			if (m_CurrentState)
+				m_CurrentState->OnRender(m_Owner);
+		}
+
+		inline virtual void OnImGuiRender()
+		{
+			if (m_CurrentState)
+				m_CurrentState->OnImGuiRender(m_Owner);
+		}
 	private:
 		virtual	std::string ConditionToString(Condition condition) 
 		{

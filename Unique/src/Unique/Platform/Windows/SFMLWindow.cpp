@@ -39,11 +39,6 @@ namespace Unique
 		m_Window = new sf::RenderWindow(sf::VideoMode((int)props.Width, (int)props.Height), m_Data.Title);
 		m_Window->setFramerateLimit(60);
 		
-
-		//auto circle = std::make_shared<sf::CircleShape>(50);
-		//circle->setFillColor(sf::Color::Green);
-		//AddGameObject(circle);
-		
 	}
 
 	void SFMLWindow::Shutdown()
@@ -67,22 +62,10 @@ namespace Unique
 		if (m_Window->isOpen())
 		{
 			OnEvent();
-			m_Window->clear();
+			m_Window->clear(m_Background);
 		}
 	}
 
-	void SFMLWindow::Render()
-	{
-		if (m_Window->isOpen())
-		{
-			if (!m_Objs.empty()) {
-				for (auto& obj : m_Objs)
-				{
-					m_Window->draw(*obj);
-				}
-			}
-		}
-	}
 
 	void SFMLWindow::EndUpdate()
 	{
@@ -154,10 +137,6 @@ namespace Unique
 		m_Background = color;
 	}
 
-	void SFMLWindow::AddGameObject(const std::shared_ptr<sf::Drawable>& drawable)
-	{
-		m_Objs.push_back(drawable);
-	}
 
 	void SFMLWindow::SetVSync(bool enabled)
 	{

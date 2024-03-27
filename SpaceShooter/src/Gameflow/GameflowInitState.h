@@ -7,7 +7,8 @@ class GameflowInitState : public Unique::State<GameLayer, GameFlowState>
 public:
     GameflowInitState() {}
     void Enter(GameLayer* layer) override;
-    void Update(GameLayer* layer) override {}
+    void OnUpdate(GameLayer* layer) override {}
+    void OnRender(GameLayer* layer) override {}
     void Exit(GameLayer* layer) override {}
 
 private:

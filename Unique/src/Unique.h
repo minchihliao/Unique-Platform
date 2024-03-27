@@ -34,4 +34,5 @@
 #include "Unique/Renderer/Renderer2D.h"
 #include "Unique/Renderer/Texture.h"
 #include "Unique/Platform/SFML/SFMLTexture2D.h"
+#include "Unique/Sprite.h"
 // ---------------------------------------------

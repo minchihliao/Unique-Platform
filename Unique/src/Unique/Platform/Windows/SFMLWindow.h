@@ -17,13 +17,11 @@ namespace Unique {
 		void OnUpdate() override;
 
 		void BegineUpdate() override;
-		void Render() override;
+		void Render() override {}
 		void EndUpdate() override;
 
 		inline unsigned int GetWidth() const override { return m_Data.Width; }
 		inline unsigned int GetHeight() const override { return m_Data.Height; }
-
-		inline sf::RenderWindow& GetSFMLWindow() { return *m_Window; }
 
 		inline virtual void* GetNativeWindow() const { return m_Window; }
 
@@ -33,7 +31,6 @@ namespace Unique {
 		bool IsVSync() const override;
 
 		void SetBackgroundColor(sf::Color color);
-		void AddGameObject(const std::shared_ptr<sf::Drawable>& drawable);
 
 
 	private:
@@ -46,9 +43,8 @@ namespace Unique {
 
 		sf::RenderWindow* m_Window;
 
-		sf::Color m_Background;
+		sf::Color m_Background = sf::Color::Black;
 
-		std::vector<std::shared_ptr<sf::Drawable>> m_Objs;
 
 		struct WindowData
 		{

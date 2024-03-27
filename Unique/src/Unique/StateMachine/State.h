@@ -11,7 +11,9 @@ namespace Unique
         virtual ~State() = default;
         virtual void Enter(T*) {}
         virtual void Exit(T*) {}
-        virtual void Update(T*) {}
+        virtual void OnUpdate(T*) {}
+        virtual void OnRender(T*) {}
+        virtual void OnImGuiRender(T*) {}
     };
 
 
