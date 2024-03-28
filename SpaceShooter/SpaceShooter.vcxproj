@@ -134,6 +134,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Bullet.cpp" />
     <ClCompile Include="src\Enemy.cpp" />
     <ClCompile Include="src\Gameflow\GameflowEndGameState.cpp" />
     <ClCompile Include="src\Gameflow\GameflowGameState.cpp" />
@@ -151,6 +152,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Bullet.h" />
     <ClInclude Include="src\Enemy.h" />
     <ClInclude Include="src\Gameflow\GameflowEndGameState.h" />
     <ClInclude Include="src\Gameflow\GameflowGameState.h" />

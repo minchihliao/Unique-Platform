@@ -23,16 +23,20 @@ public:
 	 bool ShouldBeRemoved() const {
 		 return m_Dead;
 	 }
+	 sf::FloatRect GetGlobalBounds() { return m_Sprite.GetGlobalBounds(); }
 
+	 void SetHp (int val) {  m_Hp = val; }
+	 int GetHp() { return m_Hp; }
+	 int GetMaxHp() { return m_HpMax; }
+	
 
-	uint32_t GetScore() const { return (uint32_t)(m_Position.x + 10.0f) / 10.0f; }
 private:
 	void collision();
 	bool IsOutofBounds();
 	sf::Vector2f m_Position = { 100.0f, 100.0f };
 	sf::Vector2f m_Velocity = { 5.0f, 0.0f };
-	int m_Hp = 10;
-	int m_HpMax = 10;
+	int m_Hp;
+	int m_HpMax;
 
 	bool m_Dead = false; 
 

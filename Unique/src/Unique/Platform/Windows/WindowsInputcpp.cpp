@@ -17,7 +17,8 @@ namespace Unique {
 
 	bool WindowsInput::IsMouseButtonPressedImpl(int button)
 	{
-
+		//UQ_CORE_INFO("{0}",button);
+		//UQ_CORE_INFO("{0}", static_cast<sf::Mouse::Button>(button));
 		return  sf::Mouse::isButtonPressed(static_cast<sf::Mouse::Button>(button));
 	}
 

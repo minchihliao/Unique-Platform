@@ -19,18 +19,53 @@ void Player::LoadAssets()
 void Player::OnUpdate()
 {
 	if (Input::IsKeyPressed(UQ_KEY_A))
+	{
 		m_Position += sf::Vector2f(-10.f, 0.f);
+		m_Sprite.SetPosition(m_Position);
+	}
 	if (Input::IsKeyPressed(UQ_KEY_D))
+	{
 		m_Position += sf::Vector2f(10.f, 0.f);
+		m_Sprite.SetPosition(m_Position);
+	}
 	if (Input::IsKeyPressed(UQ_KEY_W))
+	{
 		m_Position += sf::Vector2f(0.f, -10.f);
+		m_Sprite.SetPosition(m_Position);
+	}
 	if (Input::IsKeyPressed(UQ_KEY_S))
+	{
 		m_Position += sf::Vector2f(0.f, 10.f);
+		m_Sprite.SetPosition(m_Position);
+	}
 
 	collision();
 	
 
 	//Shooting
+	if (m_ShootTimer < 10000)
+		m_ShootTimer++;
+	if (Input::IsMouseButtonPressed(UQ_MOUSE_BUTTON_Left)) 
+	{
+		UQ_INFO("Shoot");
+		m_ShootTimer = 0;
+		sf::Vector2f bulletPosition = sf::Vector2(GetPosition().x
+			, GetPosition().y);
+		Bullet* bullet = new Bullet();
+		bullet->LoadAssets();
+		bullet->SetPosition(bulletPosition);
+		m_Bullets.push_back(bullet);
+	}
+
+	////Bullte
+	//for (size_t i = 0; i < m_Bullets.size(); i++)
+	//{
+	//	m_Bullets[i]->OnUpdate();
+
+	//	if (m_Bullets[i]->ShouldBeRemoved())
+	//		m_Bullets.erase(m_Bullets.begin() + i);
+	//}
+
 }
 
 
@@ -39,10 +74,18 @@ void Player::OnUpdate()
 void Player::OnRender()
 {
 	Unique::Renderer2D::DrawSprite(m_Sprite, GetPosition());
+	for (auto bullet: m_Bullets)
+	{
+		bullet->OnRender();
+	}
 }
 
 void Player::OnImGuiRender()
 {
+	for (auto bullet : m_Bullets)
+	{
+		bullet->OnImGuiRender();
+	}
 }
 
 void Player::Reset()
@@ -53,6 +96,7 @@ void Player::Reset()
 
 	m_Position = sf::Vector2f(window->getSize().x / 2 - m_Sprite.GetGlobalBounds().width / 2,
 		window->getSize().y - m_Sprite.GetGlobalBounds().height );
+	m_Sprite.SetPosition(m_Position);
 }
 
 void Player::collision()
@@ -60,11 +104,23 @@ void Player::collision()
 	auto window = static_cast<sf::RenderWindow*>(Application::Get().GetWindow().GetNativeWindow());
 	//Collision with window
 	if (m_Position.x <= 0)	// left
+	{
 		m_Position = sf::Vector2f(0.f, m_Position.y);
+		m_Sprite.SetPosition(m_Position);
+	}
 	if (m_Position.x >= window->getSize().x - m_Sprite.GetGlobalBounds().width)	//Right
+	{
 		m_Position = sf::Vector2f(window->getSize().x - m_Sprite.GetGlobalBounds().width, m_Position.y);
+		m_Sprite.SetPosition(m_Position);
+	}
 	if (m_Position.y <= 0) // TOP
+	{
 		m_Position = sf::Vector2f(m_Position.x, 0.f);
+		m_Sprite.SetPosition(m_Position);
+	}
 	if (m_Position.y >= window->getSize().y - m_Sprite.GetGlobalBounds().height) //Bottom
+	{
 		m_Position = sf::Vector2f(m_Position.x, window->getSize().y - m_Sprite.GetGlobalBounds().height);
+		m_Sprite.SetPosition(m_Position);
+	}
 }

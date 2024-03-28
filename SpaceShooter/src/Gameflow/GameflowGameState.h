@@ -15,6 +15,7 @@ public:
     void Exit(GameLayer* layer) override;
 
 private:
+    uint32_t m_Score = 0;
     Player m_Player;
     std::vector<Enemy*> m_Enemies;
     int enemySpawnTimder = 25;
