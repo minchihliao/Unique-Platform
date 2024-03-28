@@ -18,13 +18,13 @@ void GameLayer::OnDetach()
 {
 }
 
-void GameLayer::OnUpdate()
+void GameLayer::OnUpdate(Timestep ts)
 {
 	/*Unique::Ref<Unique::Texture2D> enemy = Unique::SFMLTexture::Create("assets/textures/enemy.png");
 	
 	Unique::Renderer2D::DrawCirclue(20, sf::Vector2f(20, 20), sf::Color::Green);*/
 	
-	m_GameFlowStateMachine->OnUpdate();
+	m_GameFlowStateMachine->OnUpdate(ts);
 	m_GameFlowStateMachine->OnRender();
 }
 

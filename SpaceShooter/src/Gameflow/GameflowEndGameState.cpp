@@ -5,7 +5,7 @@ void GameflowEndGameState::Enter(GameLayer* layer)
 	UQ_INFO("Game EndGame");
 }
 
-void GameflowEndGameState::OnUpdate(GameLayer* layer)
+void GameflowEndGameState::OnUpdate(GameLayer* layer, Unique::Timestep ts)
 {
 }
 

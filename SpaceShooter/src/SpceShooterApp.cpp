@@ -13,7 +13,7 @@ public:
 	{
 	}
 
-	void OnUpdate() override
+	void OnUpdate(Unique::Timestep ts) override
 	{
 		//UQ_INFO("ExampleLayer::Update");
 		if (Unique::Input::IsKeyPressed(UQ_KEY_Tab))

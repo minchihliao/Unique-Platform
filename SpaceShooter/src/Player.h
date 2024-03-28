@@ -11,7 +11,7 @@ public:
 
 	void LoadAssets();
 
-	void OnUpdate();
+	void OnUpdate(Timestep ts);
 	void OnRender();
 
 	void OnImGuiRender();
@@ -31,7 +31,10 @@ private:
 	sf::Vector2f m_Position = { 100.0f, 100.0f };
 	sf::Vector2f m_Velocity = { 5.0f, 0.0f };
 	std::vector<Bullet*> m_Bullets;
-	int m_ShootTimer = 100;
+
+	float m_Time = 0.0f;
+	float m_BullteInterval = 0.2f;
+	float m_BullteNextShootTime = m_BullteInterval;
 
 	int m_Hp = 10;
 	int m_HpMax =10;
@@ -41,8 +44,6 @@ private:
 
 	Sprite m_Sprite;
 
-
-	float m_Time = 0.0f;
 
 	//Bullets object
 

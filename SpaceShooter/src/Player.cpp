@@ -16,8 +16,10 @@ void Player::LoadAssets()
 	m_Sprite.SetScale(sf::Vector2f(0.1, 0.1));
 }
 
-void Player::OnUpdate()
+void Player::OnUpdate(Timestep ts)
 {
+	m_Time += ts;
+
 	if (Input::IsKeyPressed(UQ_KEY_A))
 	{
 		m_Position += sf::Vector2f(-10.f, 0.f);
@@ -43,12 +45,9 @@ void Player::OnUpdate()
 	
 
 	//Shooting
-	if (m_ShootTimer < 10000)
-		m_ShootTimer++;
-	if (Input::IsMouseButtonPressed(UQ_MOUSE_BUTTON_Left)) 
+	if (Input::IsMouseButtonPressed(UQ_MOUSE_BUTTON_Left)&& m_Time > m_BullteNextShootTime)
 	{
-		UQ_INFO("Shoot");
-		m_ShootTimer = 0;
+		m_BullteNextShootTime += m_BullteInterval;
 		sf::Vector2f bulletPosition = sf::Vector2(GetPosition().x
 			, GetPosition().y);
 		Bullet* bullet = new Bullet();
@@ -56,15 +55,6 @@ void Player::OnUpdate()
 		bullet->SetPosition(bulletPosition);
 		m_Bullets.push_back(bullet);
 	}
-
-	////Bullte
-	//for (size_t i = 0; i < m_Bullets.size(); i++)
-	//{
-	//	m_Bullets[i]->OnUpdate();
-
-	//	if (m_Bullets[i]->ShouldBeRemoved())
-	//		m_Bullets.erase(m_Bullets.begin() + i);
-	//}
 
 }
 

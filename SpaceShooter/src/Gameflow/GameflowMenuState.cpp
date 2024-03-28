@@ -6,7 +6,7 @@ void GameflowMenuState::Enter(GameLayer* layer)
 	layer->GetFlowStateMachine()->ChangeState(GameFlowState::Game);
 }
 
-void GameflowMenuState::OnUpdate(GameLayer* layer)
+void GameflowMenuState::OnUpdate(GameLayer* layer, Unique::Timestep ts)
 {
 }
 

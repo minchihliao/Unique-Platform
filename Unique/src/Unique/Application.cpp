@@ -58,11 +58,16 @@ namespace Unique
 
 	void Application::Run()
 	{
+		
 		while (m_Running)
 		{
+			float time = m_Clock.getElapsedTime().asSeconds();
+			Timestep timestep = time - m_LastFrameTime;
+			m_LastFrameTime = time;
+
 			m_Window->BegineUpdate();
 			for (Layer* layer : m_LayerStack) {
-				layer->OnUpdate();
+				layer->OnUpdate(timestep);
 			}
 				
 			m_Window->Render();

@@ -12,7 +12,7 @@ void Bullet::LoadAssets()
 	m_Sprite.SetScale(sf::Vector2f(0.1, 0.1));
 }
 
-void Bullet::OnUpdate()
+void Bullet::OnUpdate(Timestep ts)
 {
 	if (!m_Dead) 
 	{

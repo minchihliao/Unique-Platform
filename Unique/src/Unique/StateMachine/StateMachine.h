@@ -51,10 +51,10 @@ namespace Unique
 			}
 		}
 
-		inline virtual void OnUpdate() 
+		inline virtual void OnUpdate(Timestep ts)
 		{
 			if (m_CurrentState)
-				m_CurrentState->OnUpdate(m_Owner);
+				m_CurrentState->OnUpdate(m_Owner,ts);
 		}
 
 		inline virtual void OnRender()

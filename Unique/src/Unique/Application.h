@@ -6,6 +6,7 @@
 #include "Unique/ImGui/ImGuiLayer.h"
 #include "Unique/Window.h"
 #include "Unique/Events/ApplicationEvent.h"
+#include "Unique/Timestep.h"
 
 
 namespace Unique
@@ -31,6 +32,8 @@ namespace Unique
 			ImGuiLayer* m_ImGuiLayer;
 			bool m_Running = true;
 			LayerStack m_LayerStack;
+			float m_LastFrameTime = 0.0f;
+			sf::Clock m_Clock; 
 		private:
 			static Application* s_Instance;
 	};

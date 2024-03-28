@@ -11,7 +11,7 @@ public:
 	virtual void OnAttach() override;
 	virtual void OnDetach() override;
 
-	void OnUpdate() override;
+	void OnUpdate(Unique::Timestep ts) override;
 	virtual void OnImGuiRender() override;
 	void OnEvent(Unique::Event& e) override;
 

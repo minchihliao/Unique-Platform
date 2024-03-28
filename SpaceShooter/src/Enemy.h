@@ -9,7 +9,7 @@ public:
 	Enemy();
 	void LoadAssets();
 
-	void OnUpdate();
+	void OnUpdate(Timestep ts);
 	void OnRender();
 
 	void OnImGuiRender();

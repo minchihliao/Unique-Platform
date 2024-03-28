@@ -13,16 +13,16 @@ void GameflowGameState::Enter(GameLayer* layer)
 	
 }
 
-void GameflowGameState::OnUpdate(GameLayer* layer)
+void GameflowGameState::OnUpdate(GameLayer* layer, Unique::Timestep ts)
 {
+	m_Time += ts;
+	UQ_INFO(m_Time);
 	//Player
-	m_Player.OnUpdate();
+	m_Player.OnUpdate(ts);
 
 	//Enemy
-	if (enemySpawnTimder < 25)
-		enemySpawnTimder++;
-	if (enemySpawnTimder >= 25 && m_Enemies.size() < 50) {
-		enemySpawnTimder = 0;
+	if (m_Time > m_EnemyNextSpawnTime && m_Enemies.size() < 50) {
+		m_EnemyNextSpawnTime += m_EnemySpawnInterval;
 		Enemy* enemy = new Enemy();
 		enemy->LoadAssets();
 		enemy->Reset();
@@ -30,7 +30,7 @@ void GameflowGameState::OnUpdate(GameLayer* layer)
 	}
 	for (size_t i = 0; i < m_Enemies.size(); i++ )
 	{
-		m_Enemies[i]->OnUpdate();
+		m_Enemies[i]->OnUpdate(ts);
 		
 		if (m_Enemies[i]->ShouldBeRemoved()) {
 			m_Enemies.erase(m_Enemies.begin() + i);
@@ -43,11 +43,11 @@ void GameflowGameState::OnUpdate(GameLayer* layer)
 		}
 	}
 
-	////Bullte Collision
+	//Bullte Collision
 	auto& bullets = m_Player.GetBullets();
 	for (size_t i = 0; i < bullets.size(); i++)
 	{
-		bullets[i]->OnUpdate();
+		bullets[i]->OnUpdate(ts);
 
 		if (bullets[i]->ShouldBeRemoved()) 
 		{

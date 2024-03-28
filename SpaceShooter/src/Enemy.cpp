@@ -12,7 +12,7 @@ void Enemy::LoadAssets()
 	m_Sprite.SetScale(sf::Vector2f(0.1, 0.1));
 }
 
-void Enemy::OnUpdate()
+void Enemy::OnUpdate(Timestep ts)
 {
 	if (!m_Dead)
 	{
