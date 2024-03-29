@@ -8,6 +8,7 @@
 class GameflowGameState : public Unique::State<GameLayer, GameFlowState>
 {
 public:
+    GameflowGameState();
     void Enter(GameLayer* layer) override;
     void OnUpdate(GameLayer* layer, Unique::Timestep ts) override;
     void OnRender(GameLayer* layer) override;
@@ -15,6 +16,9 @@ public:
     void Exit(GameLayer* layer) override;
 
 private:
+    bool isGameOver() { return m_GameOver; }
+private:
+    bool m_GameOver = false;
     uint32_t m_Score = 0;
     Player m_Player;
     std::vector<Enemy*> m_Enemies;

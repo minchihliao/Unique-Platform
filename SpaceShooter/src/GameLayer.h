@@ -20,7 +20,6 @@ public:
 	bool OnMouseButtonPressed(Unique::MouseButtonPressedEvent& e);
 	bool OnWindowResize(Unique::WindowResizeEvent& e);
 private:
-
 	float m_Time = 0.0f;
 	bool m_Blink = false;
 	GameFlowStateMachine* m_GameFlowStateMachine;

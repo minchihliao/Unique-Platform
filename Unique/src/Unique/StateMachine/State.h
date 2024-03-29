@@ -1,5 +1,6 @@
 #pragma once
 #include "uqpch.h"
+#include "Unique/Events/Event.h"
 
 
 namespace Unique 
@@ -11,6 +12,7 @@ namespace Unique
         virtual ~State() = default;
         virtual void Enter(T*) {}
         virtual void Exit(T*) {}
+        virtual void OnEvent(Event& e) {}
         virtual void OnUpdate(T*, Timestep ts) {}
         virtual void OnRender(T*) {}
         virtual void OnImGuiRender(T*) {}

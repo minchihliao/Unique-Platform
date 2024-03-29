@@ -6,14 +6,29 @@
 
 Player::Player()
 {
-	
-
+	this->m_Hp = 10;
+	this->m_HpMax = this->m_Hp;
+	LoadAssets();
 }
 
 void Player::LoadAssets()
 {
 	m_Sprite.SetTexture(Unique::Texture2D::Create("assets/textures/enemy.png"));
 	m_Sprite.SetScale(sf::Vector2f(0.1, 0.1));
+}
+
+void Player::Reset()
+{
+	auto window = static_cast<sf::RenderWindow*>(Application::Get().GetWindow().GetNativeWindow());
+	m_Position = sf::Vector2f(window->getSize().x / 2 - m_Sprite.GetGlobalBounds().width / 2,
+		window->getSize().y - m_Sprite.GetGlobalBounds().height);
+	m_Sprite.SetPosition(m_Position);
+	this->m_Hp = 10;
+	this->m_HpMax = this->m_Hp;
+	m_Bullets.clear();
+	m_Time = 0.0f;
+	m_BullteInterval = 0.2f;
+	m_BullteNextShootTime = m_BullteInterval;
 }
 
 void Player::OnUpdate(Timestep ts)
@@ -78,16 +93,7 @@ void Player::OnImGuiRender()
 	}
 }
 
-void Player::Reset()
-{
-	auto window = static_cast<sf::RenderWindow*>(Application::Get().GetWindow().GetNativeWindow());
-	UQ_INFO("{0},{1},{2},{3}", window->getSize().x / 2, m_Sprite.GetGlobalBounds().width / 2,
-		window->getSize().y, m_Sprite.GetGlobalBounds().height / 2);
 
-	m_Position = sf::Vector2f(window->getSize().x / 2 - m_Sprite.GetGlobalBounds().width / 2,
-		window->getSize().y - m_Sprite.GetGlobalBounds().height );
-	m_Sprite.SetPosition(m_Position);
-}
 
 void Player::collision()
 {

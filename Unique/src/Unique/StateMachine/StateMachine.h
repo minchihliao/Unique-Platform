@@ -1,5 +1,6 @@
 #pragma once
 #include "Unique/StateMachine/State.h"
+#include "Unique/Events/Event.h"
 
 namespace Unique 
 {
@@ -49,6 +50,11 @@ namespace Unique
 			{
 				UQ_CORE_WARN("Don't have {0} State", ConditionToString(condition));
 			}
+		}
+		inline virtual void OnEvent(Event& e)
+		{
+			if (m_CurrentState)
+				m_CurrentState->OnEvent(e);
 		}
 
 		inline virtual void OnUpdate(Timestep ts)

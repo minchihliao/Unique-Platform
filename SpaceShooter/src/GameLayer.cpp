@@ -10,6 +10,7 @@ GameLayer::GameLayer()
 
 void GameLayer::OnAttach()
 {
+
 	m_GameFlowStateMachine->Init();
 	m_GameFlowStateMachine->ChangeState(GameFlowState::Init);
 }
@@ -38,6 +39,7 @@ void GameLayer::OnImGuiRender()
 
 void GameLayer::OnEvent(Unique::Event& e)
 {
+	m_GameFlowStateMachine->OnEvent(e);
 	EventDispatcher dispatcher(e);
 	dispatcher.Dispatch<WindowResizeEvent>(UQ_BIND_EVENT_FN(GameLayer::OnWindowResize));
 	dispatcher.Dispatch<MouseButtonPressedEvent>(UQ_BIND_EVENT_FN(GameLayer::OnMouseButtonPressed));
@@ -45,10 +47,7 @@ void GameLayer::OnEvent(Unique::Event& e)
 
 bool GameLayer::OnMouseButtonPressed(Unique::MouseButtonPressedEvent& e)
 {
-	if (m_State == GameState::GameOver)
-
-
-	m_State = GameState::Play;
+	
 	return false;
 }
 

@@ -22,8 +22,11 @@ namespace Unique {
 	{
 		UQ_CORE_INFO("Attach ImGuiLayer");
 		auto window = static_cast<sf::RenderWindow*>(Application::Get().GetWindow().GetNativeWindow());
-		ImGui::SFML::Init(*window);
-		
+		ImGui::SFML::Init(*window,false);
+		ImGuiIO& IO = ImGui::GetIO();
+		IO.Fonts->Clear(); 
+		IO.Fonts->AddFontFromFileTTF("assets/OpenSans-Regular.ttf", 120.0f);
+		ImGui::SFML::UpdateFontTexture(); // important call: updates font texture
 	}
 
 	void ImGuiLayer::OnDetach()

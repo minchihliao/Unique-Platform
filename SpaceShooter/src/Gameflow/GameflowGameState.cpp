@@ -1,22 +1,34 @@
 #include "GameflowGameState.h"
 
+GameflowGameState::GameflowGameState()
+{
+}
+
 void GameflowGameState::Enter(GameLayer* layer)
 {
 	UQ_INFO("Gameflow : Game");
-	m_Player.LoadAssets();
 	m_Player.Reset();
-	for (auto enemy: m_Enemies)
-	{
-		enemy->LoadAssets();
-		enemy->Reset();
-	}
-	
+	m_GameOver = false;
+	m_Score = 0;
+	m_Enemies.clear();
+	enemySpawnTimder = 25;
+	m_Time = 0.0f;
+	m_EnemySpawnInterval = 0.2f;
+	m_EnemyNextSpawnTime = m_EnemySpawnInterval;
 }
 
 void GameflowGameState::OnUpdate(GameLayer* layer, Unique::Timestep ts)
 {
 	m_Time += ts;
-	UQ_INFO(m_Time);
+	if (isGameOver()) 
+	{
+		layer->GetFlowStateMachine()->ChangeState(GameFlowState::EndGame);
+		return;
+	}
+
+	if (m_Player.GetHP() <= 0)
+		m_GameOver = true;
+
 	//Player
 	m_Player.OnUpdate(ts);
 
@@ -38,7 +50,9 @@ void GameflowGameState::OnUpdate(GameLayer* layer, Unique::Timestep ts)
 		}
 		if (m_Enemies[i]->GetGlobalBounds().intersects(m_Player.GetGlobalBounds())) {
 			m_Enemies.erase(m_Enemies.begin() + i);
-			//player.Hp--; //Player Take damage.
+			int val = m_Player.GetHP();
+			val--;
+			m_Player.SetHP(val);
 			break;
 		}
 	}
@@ -101,6 +115,18 @@ void GameflowGameState::OnRender(GameLayer* layer)
 
 void GameflowGameState::OnImGuiRender(GameLayer* layer)
 {
+	auto window = static_cast<sf::RenderWindow*>(Application::Get().GetWindow().GetNativeWindow());
+	ImVec2 windowCenterPos = window->getSize();
+	windowCenterPos.x /= 2.f;
+	windowCenterPos.y /= 2.f;
+
+	uint32_t playerScore = m_Score;
+	ImVec2 pos;
+	pos.x = 30.f;
+	pos.y = 20.f;
+	std::string scoreStr = std::string("Score: ") + std::to_string(playerScore);
+	ImGui::GetForegroundDrawList()->AddText(ImGui::GetIO().Fonts->Fonts[0], 48.0f, pos, 0xffffffff, scoreStr.c_str());
+
 	m_Player.OnImGuiRender();
 	for (auto enemy : m_Enemies)
 	{
@@ -110,4 +136,5 @@ void GameflowGameState::OnImGuiRender(GameLayer* layer)
 
 void GameflowGameState::Exit(GameLayer* layer)
 {
+	m_Enemies.clear();
 }
