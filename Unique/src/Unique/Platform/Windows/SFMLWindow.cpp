@@ -57,11 +57,19 @@ namespace Unique
 
 	}
 
-	void SFMLWindow::BegineUpdate()
+	void SFMLWindow::OnEvent()
 	{
 		if (m_Window->isOpen())
 		{
-			OnEvent();
+			onEvent();
+			
+		}
+	}
+
+	void SFMLWindow::Render()
+	{
+		if (m_Window->isOpen())
+		{
 			m_Window->clear(m_Background);
 		}
 	}
@@ -69,10 +77,13 @@ namespace Unique
 
 	void SFMLWindow::EndUpdate()
 	{
-		m_Window->display();
+		if (m_Window->isOpen())
+		{
+			m_Window->display();
+		}
 	}
 
-	void SFMLWindow::OnEvent()
+	void SFMLWindow::onEvent()
 	{
 		sf::Event event;
 		while (m_Window->pollEvent(event))

@@ -2,7 +2,8 @@
 
 Enemy::Enemy()
 {
-	this->m_Hp = 3;
+	int randonHp = rand() % 5;
+	this->m_Hp = randonHp == 0 ? 5: randonHp;
 	this->m_HpMax = this->m_Hp;
 }
 
@@ -30,6 +31,15 @@ void Enemy::OnRender()
 
 void Enemy::OnImGuiRender()
 {
+
+	auto hpOverTextPos = m_Position;
+	hpOverTextPos.x -= 15.f;
+	hpOverTextPos.y -= 10.f;
+	std::string hpString = std::to_string(m_Hp) + "/" + std::to_string(m_HpMax);
+	std::vector<char> charVector(hpString.begin(), hpString.end());
+	charVector.push_back('\0');
+
+	ImGui::GetForegroundDrawList()->AddText(ImGui::GetIO().Fonts->Fonts[0], 18.f, hpOverTextPos, 0xffffffff, charVector.data());
 }
 
 void Enemy::Reset()

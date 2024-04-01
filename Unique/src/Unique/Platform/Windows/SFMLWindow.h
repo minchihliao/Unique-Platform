@@ -16,8 +16,8 @@ namespace Unique {
 
 		void OnUpdate() override;
 
-		void BegineUpdate() override;
-		void Render() override {}
+		void OnEvent() override;
+		void Render() override;
 		void EndUpdate() override;
 
 		inline unsigned int GetWidth() const override { return m_Data.Width; }
@@ -37,7 +37,7 @@ namespace Unique {
 		virtual void Init(const WindowProps& props);
 		virtual void Shutdown();
 		
-		void OnEvent();
+		void onEvent();
 
 	private:
 

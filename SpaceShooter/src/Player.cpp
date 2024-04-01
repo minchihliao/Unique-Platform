@@ -6,7 +6,7 @@
 
 Player::Player()
 {
-	this->m_Hp = 10;
+	this->m_Hp = 3;
 	this->m_HpMax = this->m_Hp;
 	LoadAssets();
 }
@@ -23,7 +23,7 @@ void Player::Reset()
 	m_Position = sf::Vector2f(window->getSize().x / 2 - m_Sprite.GetGlobalBounds().width / 2,
 		window->getSize().y - m_Sprite.GetGlobalBounds().height);
 	m_Sprite.SetPosition(m_Position);
-	this->m_Hp = 10;
+	this->m_Hp = 3;
 	this->m_HpMax = this->m_Hp;
 	m_Bullets.clear();
 	m_Time = 0.0f;
@@ -62,7 +62,7 @@ void Player::OnUpdate(Timestep ts)
 	//Shooting
 	if (Input::IsMouseButtonPressed(UQ_MOUSE_BUTTON_Left)&& m_Time > m_BullteNextShootTime)
 	{
-		m_BullteNextShootTime += m_BullteInterval;
+		m_BullteNextShootTime = m_Time+ m_BullteInterval;
 		sf::Vector2f bulletPosition = sf::Vector2(GetPosition().x
 			, GetPosition().y);
 		Bullet* bullet = new Bullet();
@@ -87,6 +87,16 @@ void Player::OnRender()
 
 void Player::OnImGuiRender()
 {
+
+	auto hpOverTextPos = m_Position;
+	hpOverTextPos.x -= 15.f;
+	hpOverTextPos.y -= 10.f;
+	std::string hpString = std::to_string(m_Hp)+"/"+std::to_string(m_HpMax);
+	std::vector<char> charVector(hpString.begin(), hpString.end());
+	charVector.push_back('\0'); 
+
+	ImGui::GetForegroundDrawList()->AddText(ImGui::GetIO().Fonts->Fonts[0], 18.f, hpOverTextPos, 0xffffffff, charVector.data());
+
 	for (auto bullet : m_Bullets)
 	{
 		bullet->OnImGuiRender();

@@ -12,6 +12,8 @@ public:
     void OnRender(GameLayer* layer) override;
     void OnImGuiRender(GameLayer* layer) override;
     void Exit(GameLayer* layer) override;
+
+private:
     bool OnMouseButtonPressed(Unique::MouseButtonPressedEvent& e);
 
 private:

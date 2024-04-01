@@ -20,8 +20,8 @@ void GameflowEndGameState::OnUpdate(GameLayer* layer, Unique::Timestep ts)
 	if ((int)(m_Time * 10.0f) % 8 > 4)
 		m_Blink = !m_Blink;
 
-	if(m_Restart)
-		layer->GetFlowStateMachine()->ChangeState(GameFlowState::Menu);
+	/*if(m_Restart)
+		layer->GetFlowStateMachine()->ChangeState(GameFlowState::Game);*/
 }
 
 void GameflowEndGameState::OnRender(GameLayer* layer)
@@ -34,17 +34,29 @@ void GameflowEndGameState::OnImGuiRender(GameLayer* layer)
 	ImVec2 windowCenterPos = window->getSize();
 	windowCenterPos.x /= 2.f;
 	windowCenterPos.y /= 2.f;
-
+	windowCenterPos.y -= 50.f;
 	auto gameOverTextPos = windowCenterPos;
 	gameOverTextPos.x -= 250.f;
 	gameOverTextPos.y -= 100.f;
 	ImGui::GetForegroundDrawList()->AddText(ImGui::GetIO().Fonts->Fonts[0], 120.0f, gameOverTextPos, 0xffffffff, "Game Over !");
 
-	auto clickTextPos = windowCenterPos;
-	clickTextPos.x -= 160.f;
-	clickTextPos.y += 0.f;
-	if(m_Blink)
-		ImGui::GetForegroundDrawList()->AddText(ImGui::GetIO().Fonts->Fonts[0], 75.0f, clickTextPos, 0xffffffff, "Click to Play !");
+	uint32_t playerScore = layer->GetScore();
+	ImVec2 scorePos = windowCenterPos;
+	scorePos.x -= 150.f;
+	scorePos.y += 5.f;
+	std::string scoreStr = std::string("Your Score: ") + std::to_string(playerScore);
+	ImGui::GetForegroundDrawList()->AddText(ImGui::GetIO().Fonts->Fonts[0], 65.f, scorePos, 0xffffffff, scoreStr.c_str());
+
+	ImVec2 buttonPos = windowCenterPos;
+	buttonPos.x -= 150.f;
+	buttonPos.y += 80.f;
+	ImGui::SetCursorPos(buttonPos);
+	
+	ImGui::PushFont(ImGui::GetIO().Fonts->Fonts[1]);
+	if (ImGui::Button("Restart Game",ImVec2(300,65))) {
+		layer->GetFlowStateMachine()->ChangeState(GameFlowState::Game);
+	}
+	ImGui::PopFont();
 
 }
 

@@ -29,7 +29,7 @@ namespace Unique
 
 			virtual ~Window() {}
 
-			virtual void BegineUpdate() =0;
+			virtual void OnEvent() =0;
 			virtual void Render() = 0;
 			virtual void EndUpdate() = 0;
 

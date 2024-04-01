@@ -66,21 +66,32 @@ namespace Unique
 			Timestep timestep = time - m_LastFrameTime;
 			m_LastFrameTime = time;
 
-			m_Window->BegineUpdate();
+			m_Window->OnEvent();
+
 			for (Layer* layer : m_LayerStack) {
 				layer->OnUpdate(timestep);
 			}
-				
+			
 			m_Window->Render();
+			for (Layer* layer : m_LayerStack) {
+				layer->OnRender(timestep);
+			}
+
 
 			m_ImGuiLayer->Begin();
 			for (Layer* layer : m_LayerStack)
 				layer->OnImGuiRender();
 			m_ImGuiLayer->End();
+			m_ImGuiLayer->Render();
 
 			m_Window->EndUpdate();
 		}
 		
+	}
+
+	void Application::End()
+	{
+		ImGui::SFML::Shutdown();
 	}
 
 	bool Application::OnWindowClose(WindowCloseEvent& e)

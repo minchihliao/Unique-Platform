@@ -11,6 +11,7 @@ int main(int arg,char** argv) {
 	
 	auto app = Unique::CreateApplication();
 	app->Run();
+	app->End();
 	delete app;
 }
 

@@ -9,7 +9,7 @@ void GameflowGameState::Enter(GameLayer* layer)
 	UQ_INFO("Gameflow : Game");
 	m_Player.Reset();
 	m_GameOver = false;
-	m_Score = 0;
+	layer->SetScore(0);
 	m_Enemies.clear();
 	enemySpawnTimder = 25;
 	m_Time = 0.0f;
@@ -34,7 +34,7 @@ void GameflowGameState::OnUpdate(GameLayer* layer, Unique::Timestep ts)
 
 	//Enemy
 	if (m_Time > m_EnemyNextSpawnTime && m_Enemies.size() < 50) {
-		m_EnemyNextSpawnTime += m_EnemySpawnInterval;
+		m_EnemyNextSpawnTime = m_Time +m_EnemySpawnInterval;
 		Enemy* enemy = new Enemy();
 		enemy->LoadAssets();
 		enemy->Reset();
@@ -77,7 +77,9 @@ void GameflowGameState::OnUpdate(GameLayer* layer, Unique::Timestep ts)
 				{
 					if (m_Enemies[j]->GetHp() <= 1)
 					{
-						m_Score += m_Enemies[j]->GetMaxHp();
+						uint32_t score = layer->GetScore();
+						score += m_Enemies[j]->GetMaxHp();
+						layer->SetScore(score);
 						m_Enemies.erase(m_Enemies.begin() + j);
 
 					}
@@ -120,7 +122,7 @@ void GameflowGameState::OnImGuiRender(GameLayer* layer)
 	windowCenterPos.x /= 2.f;
 	windowCenterPos.y /= 2.f;
 
-	uint32_t playerScore = m_Score;
+	uint32_t playerScore = layer->GetScore();
 	ImVec2 pos;
 	pos.x = 30.f;
 	pos.y = 20.f;

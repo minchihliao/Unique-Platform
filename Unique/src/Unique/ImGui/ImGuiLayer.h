@@ -16,6 +16,7 @@ namespace Unique {
 			virtual void OnDetach() override;
 			void Begin();
 			void End();
+			void Render();
 			virtual void OnImGuiRender() override;
 			void OnEvent(Event& event);
 		private:

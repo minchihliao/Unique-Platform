@@ -17,6 +17,7 @@ namespace Unique
 			Application();
 			virtual ~Application();
 			void Run();
+			void End();
 
 			void OnEvent(Event& e);
 			void PushLayer(Layer* layer);
