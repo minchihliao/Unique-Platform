@@ -74,8 +74,6 @@ void Player::OnUpdate(Timestep ts)
 }
 
 
-
-
 void Player::OnRender()
 {
 	Unique::Renderer2D::DrawSprite(m_Sprite, GetPosition());

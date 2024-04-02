@@ -158,10 +158,10 @@
     <ClInclude Include="src\Unique\LayerStack.h" />
     <ClInclude Include="src\Unique\Log.h" />
     <ClInclude Include="src\Unique\MouseButtonCodes.h" />
+    <ClInclude Include="src\Unique\Platform\SFML\SFMLTexture2D.h" />
     <ClInclude Include="src\Unique\Platform\Windows\SFMLWindow.h" />
     <ClInclude Include="src\Unique\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Unique\Renderer\Renderer2D.h" />
-    <ClInclude Include="src\Unique\Platform\SFML\SFMLTexture2D.h" />
     <ClInclude Include="src\Unique\Renderer\Texture.h" />
     <ClInclude Include="src\Unique\Sprite.h" />
     <ClInclude Include="src\Unique\StateMachine\State.h" />
@@ -592,10 +592,10 @@
     <ClCompile Include="src\Unique\Layer.cpp" />
     <ClCompile Include="src\Unique\LayerStack.cpp" />
     <ClCompile Include="src\Unique\Log.cpp" />
+    <ClCompile Include="src\Unique\Platform\SFML\SFMLTexture2D.cpp" />
     <ClCompile Include="src\Unique\Platform\Windows\SFMLWindow.cpp" />
     <ClCompile Include="src\Unique\Platform\Windows\WindowsInputcpp.cpp" />
     <ClCompile Include="src\Unique\Renderer\Renderer2D.cpp" />
-    <ClCompile Include="src\Unique\Platform\SFML\SFMLTexture2D.cpp" />
     <ClCompile Include="src\Unique\Renderer\Texture.cpp" />
     <ClCompile Include="src\Unique\Sprite.cpp" />
     <ClCompile Include="src\uqpch.cpp">

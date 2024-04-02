@@ -79,7 +79,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>UQ_PLAFORM_WINDOWS;UQ_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Unique\vendor\spdlog\include;..\Unique\src;..\Unique\vendor\SFML_Imgui\SFML\include;..\Unique\vendor\SFML_Imgui\Imgui;..\Unique\vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\Unique\vendor\spdlog\include;..\Unique\src;..\Unique\vendor\SFML_Imgui\SFML\include;..\Unique\vendor\SFML_Imgui\Imgui;..\Unique\vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -96,7 +96,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>UQ_PLAFORM_WINDOWS;UQ_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Unique\vendor\spdlog\include;..\Unique\src;..\Unique\vendor\SFML_Imgui\SFML\include;..\Unique\vendor\SFML_Imgui\Imgui;..\Unique\vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\Unique\vendor\spdlog\include;..\Unique\src;..\Unique\vendor\SFML_Imgui\SFML\include;..\Unique\vendor\SFML_Imgui\Imgui;..\Unique\vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -117,7 +117,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>UQ_PLAFORM_WINDOWS;UQ_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Unique\vendor\spdlog\include;..\Unique\src;..\Unique\vendor\SFML_Imgui\SFML\include;..\Unique\vendor\SFML_Imgui\Imgui;..\Unique\vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\Unique\vendor\spdlog\include;..\Unique\src;..\Unique\vendor\SFML_Imgui\SFML\include;..\Unique\vendor\SFML_Imgui\Imgui;..\Unique\vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -134,14 +134,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Bullet.h" />
+    <ClInclude Include="src\Enemy.h" />
+    <ClInclude Include="src\GameLayer.h" />
+    <ClInclude Include="src\Gameflow\GameFlowState.h" />
+    <ClInclude Include="src\Gameflow\GameFlowStateMachine.h" />
+    <ClInclude Include="src\Gameflow\GameflowEndGameState.h" />
+    <ClInclude Include="src\Gameflow\GameflowGameState.h" />
+    <ClInclude Include="src\Gameflow\GameflowInitState.h" />
+    <ClInclude Include="src\Gameflow\GameflowMenuState.h" />
+    <ClInclude Include="src\Level.h" />
+    <ClInclude Include="src\Player.h" />
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="src\Bullet.cpp" />
     <ClCompile Include="src\Enemy.cpp" />
+    <ClCompile Include="src\GameLayer.cpp" />
+    <ClCompile Include="src\Gameflow\GameFlowStateMachine.cpp" />
     <ClCompile Include="src\Gameflow\GameflowEndGameState.cpp" />
     <ClCompile Include="src\Gameflow\GameflowGameState.cpp" />
     <ClCompile Include="src\Gameflow\GameflowInitState.cpp" />
     <ClCompile Include="src\Gameflow\GameflowMenuState.cpp" />
-    <ClCompile Include="src\Gameflow\GameFlowStateMachine.cpp" />
-    <ClCompile Include="src\GameLayer.cpp" />
     <ClCompile Include="src\Level.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\SpceShooterApp.cpp" />
@@ -150,19 +163,6 @@
     <ProjectReference Include="..\Unique\Unique.vcxproj">
       <Project>{9C8D27D6-882F-52AC-71EA-65005D2BD9FC}</Project>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\Bullet.h" />
-    <ClInclude Include="src\Enemy.h" />
-    <ClInclude Include="src\Gameflow\GameflowEndGameState.h" />
-    <ClInclude Include="src\Gameflow\GameflowGameState.h" />
-    <ClInclude Include="src\Gameflow\GameflowInitState.h" />
-    <ClInclude Include="src\Gameflow\GameflowMenuState.h" />
-    <ClInclude Include="src\Gameflow\GameFlowState.h" />
-    <ClInclude Include="src\Gameflow\GameFlowStateMachine.h" />
-    <ClInclude Include="src\GameLayer.h" />
-    <ClInclude Include="src\Level.h" />
-    <ClInclude Include="src\Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
