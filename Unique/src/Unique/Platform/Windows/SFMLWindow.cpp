@@ -143,9 +143,9 @@ namespace Unique
 		}
 	}
 
-	void SFMLWindow::SetBackgroundColor(sf::Color color)
+	void SFMLWindow::SetBackgroundColor(float r, float g, float b)
 	{
-		m_Background = color;
+		m_Background = sf::Color(r,g,b);
 	}
 
 

@@ -30,7 +30,7 @@ namespace Unique {
 		void SetVSync(bool enabled) override;
 		bool IsVSync() const override;
 
-		void SetBackgroundColor(sf::Color color);
+		void SetBackgroundColor(float r, float g, float b);
 
 
 	private:

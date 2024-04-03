@@ -22,7 +22,6 @@ void PlatformLayer::OnDetach()
 void PlatformLayer::OnUpdate(Unique::Timestep ts)
 {
 	m_PlatformStateMachine->OnUpdate(ts);
-	
 }
 
 void PlatformLayer::OnRender(Unique::Timestep ts)
@@ -33,8 +32,7 @@ void PlatformLayer::OnRender(Unique::Timestep ts)
 
 void PlatformLayer::OnImGuiRender()
 {
-	m_PlatformStateMachine->OnImGuiRender();
-	
+	m_PlatformStateMachine->OnImGuiRender();	
 }
 
 void PlatformLayer::OnEvent(Unique::Event& e)

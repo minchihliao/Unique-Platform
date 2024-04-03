@@ -12,5 +12,10 @@ public:
     void OnRender(PlatformLayer* layer) override;
     void OnImGuiRender(PlatformLayer* layer) override;
     void Exit(PlatformLayer* layer) override;
+
+private:
+    bool m_Start = false;
+    float m_Time = 0.0f;
+    float m_WaitingTime = 2.f;
 };
 
