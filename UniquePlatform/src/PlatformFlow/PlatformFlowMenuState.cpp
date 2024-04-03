@@ -37,12 +37,42 @@ void PlatformFlowMenuState::OnImGuiRender(PlatformLayer* layer)
 {
 	auto window = static_cast<sf::RenderWindow*>(Unique::Application::Get().GetWindow().GetNativeWindow());
 	ImVec2 windowSize = window->getSize();
+	ImVec2 windowCenterPos = window->getSize();
+	windowCenterPos.x /= 2.f;
+	windowCenterPos.y /= 2.f;
 
 	ImVec2 leftblockPos = ImVec2(0,0);
 	ImVec2 leftblockSize = ImVec2(windowSize.x * 0.25f, windowSize.y);
 	ImVec4 squareColor = ImVec4(0.0f, 0.0f, 0.0f, 1.0f); 
 	ImGui::GetWindowDrawList()->AddRectFilled(leftblockPos, 
 		ImVec2(leftblockPos.x + leftblockSize.x, leftblockPos.y + leftblockSize.y), ImGui::ColorConvertFloat4ToU32(squareColor));
+	auto titleTextPos = leftblockPos;
+	titleTextPos.x += 45.f;
+	titleTextPos.y += 20.f;
+	ImGui::GetForegroundDrawList()->AddText(ImGui::GetIO().Fonts->Fonts[0], 90.0f, titleTextPos, 0xffffffff, "Unique");
+	auto gameLabelTextPos = leftblockPos;
+	gameLabelTextPos.x += 30.f;
+	gameLabelTextPos.y += 125.f;
+	ImGui::SetCursorPos(gameLabelTextPos);
+	
+	ImGuiStyle& style = ImGui::GetStyle();
+	ImVec4 originalButtonColor = style.Colors[ImGuiCol_Button];
+	ImVec4 originalButtonHoveredColor = style.Colors[ImGuiCol_ButtonHovered];
+	ImVec4 originalButtonActiveColor = style.Colors[ImGuiCol_ButtonActive];
+
+	style.Colors[ImGuiCol_Button] = ImVec4(0.1647f, 0.1686f, 0.1686f, 1.0f);
+	style.Colors[ImGuiCol_ButtonHovered] = ImVec4(0.1647f, 0.1686f, 0.1686f, 1.0f);
+	style.Colors[ImGuiCol_ButtonActive] = ImVec4(0.1647f, 0.1686f, 0.1686f, 1.0f);
+	ImGui::PushFont(ImGui::GetIO().Fonts->Fonts[1]);
+	if (ImGui::Button("Your Game", ImVec2(270, 65))) {
+		layer->GetFlowStateMachine()->ChangeState(PlatformState::Menu);
+	}
+	ImGui::PopFont();
+
+	style.Colors[ImGuiCol_Button] = originalButtonColor;
+	style.Colors[ImGuiCol_ButtonHovered] = originalButtonHoveredColor;
+	style.Colors[ImGuiCol_ButtonActive] = originalButtonActiveColor;
+
 	for (size_t i = 0; i < m_GameBlockVector.size(); i++)
 	{
 		m_GameBlockVector[i]->OnImGuiRender();
