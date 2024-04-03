@@ -24,6 +24,6 @@ public:
 
 Unique::Application* Unique::CreateApplication()
 {
-	return new UniquePlatform(Unique::WindowProps("Unique Platform",1680,1050));
+	return new UniquePlatform(Unique::WindowProps("Unique Platform", 1280,800));
 }
 

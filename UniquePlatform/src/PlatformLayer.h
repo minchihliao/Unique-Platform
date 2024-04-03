@@ -1,6 +1,7 @@
 #pragma once
 #include "Unique.h"
-#include "GameBlock.h"
+
+#include "PlatformFlow/PlatformFlowStateMachine.h"
 
 class PlatformLayer : public Unique::Layer
 {
@@ -15,10 +16,13 @@ public:
 	void OnRender(Unique::Timestep ts) override;
 	virtual void OnImGuiRender() override;
 	void OnEvent(Unique::Event& e) override;
+
+	PlatformStateMachine* GetFlowStateMachine() { return m_PlatformStateMachine; }
+
 private:
 	bool OnMouseButtonPressed(Unique::MouseButtonPressedEvent& e);
 	bool OnWindowResize(Unique::WindowResizeEvent& e);
 private:
-	std::vector<GameBlock*> m_GameBlockVector;
 
+	PlatformStateMachine* m_PlatformStateMachine;
 };

@@ -9,7 +9,8 @@
 class SpaceShooter : public Unique::Application
 {
 public:
-	SpaceShooter() 
+	SpaceShooter(Unique::WindowProps windowProps)
+		:Application(windowProps)
 	{
 		PushLayer(new GameLayer());
 	}
@@ -23,6 +24,6 @@ public:
 
 Unique::Application* Unique::CreateApplication()
 {
-	return new SpaceShooter();
+	return new SpaceShooter(Unique::WindowProps("Space Shooter", 1280, 800));
 }
 

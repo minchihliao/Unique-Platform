@@ -136,10 +136,19 @@
   <ItemGroup>
     <ClInclude Include="src\Block.h" />
     <ClInclude Include="src\GameBlock.h" />
+    <ClInclude Include="src\PlatformFlow\PlatformFlowEndState.h" />
+    <ClInclude Include="src\PlatformFlow\PlatformFlowInitState.h" />
+    <ClInclude Include="src\PlatformFlow\PlatformFlowMenuState.h" />
+    <ClInclude Include="src\PlatformFlow\PlatformFlowStateMachine.h" />
+    <ClInclude Include="src\PlatformFlow\PlatformState.h" />
     <ClInclude Include="src\PlatformLayer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GameBlock.cpp" />
+    <ClCompile Include="src\PlatformFlow\PlatformFlowEndState.cpp" />
+    <ClCompile Include="src\PlatformFlow\PlatformFlowInitState.cpp" />
+    <ClCompile Include="src\PlatformFlow\PlatformFlowMenuState.cpp" />
+    <ClCompile Include="src\PlatformFlow\PlatformFlowStateMachine.cpp" />
     <ClCompile Include="src\PlatformLayer.cpp" />
     <ClCompile Include="src\UniquePlatformApp.cpp" />
   </ItemGroup>

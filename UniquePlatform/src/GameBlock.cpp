@@ -20,7 +20,7 @@ void GameBlock::OnUpdate(Unique::Timestep ts)
 {
 }
 
-void GameBlock::OnRender(Unique::Timestep ts)
+void GameBlock::OnRender()
 {
 }
 
@@ -40,7 +40,7 @@ void GameBlock::OnImGuiRender()
 	strcpy(charArray, m_Name.c_str());
 	
 	ImGui::PushFont(ImGui::GetIO().Fonts->Fonts[1]);
-	if (ImGui::Button(charArray, ImVec2(480	, 270))) {
+	if (ImGui::Button(charArray, ImVec2(320	, 180))) {
 		execute();
 	}
 	ImGui::PopFont();
@@ -78,7 +78,6 @@ std::string GameBlock::getCurrentFilePath()
 
 void GameBlock::execute()
 {
-	//system("D:\\Program\\C++\\Unique_Platform\\bin\\Debug-windows-x86_64\\SpaceShooter\\SpaceShooter.exe");
     std::string path = getCurrentFilePath();
     UQ_INFO(path);
 

@@ -13,7 +13,7 @@ public:
 	virtual void OnAttach() {}
 	virtual void OnDetach() {}
 	virtual void OnUpdate(Unique::Timestep ts) {}
-	virtual void OnRender(Unique::Timestep ts) {}
+	virtual void OnRender() {}
 	virtual void OnImGuiRender() {}
 	virtual void OnEvent(Unique::Event& event) {}
 

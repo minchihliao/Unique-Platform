@@ -18,13 +18,21 @@
     <ClCompile Include="src\UniquePlatformApp.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="PlatformLayer.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
+    <ClCompile Include="src\GameBlock.cpp" />
+    <ClCompile Include="src\PlatformLayer.cpp" />
+    <ClCompile Include="src\PlatformFlow\PlatformFlowStateMachine.cpp" />
+    <ClCompile Include="src\PlatformFlow\PlatformFlowInitState.cpp" />
+    <ClCompile Include="src\PlatformFlow\PlatformFlowMenuState.cpp" />
+    <ClCompile Include="src\PlatformFlow\PlatformFlowEndState.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="PlatformLayer.h">
-      <Filter>src</Filter>
-    </ClInclude>
+    <ClInclude Include="src\Block.h" />
+    <ClInclude Include="src\GameBlock.h" />
+    <ClInclude Include="src\PlatformLayer.h" />
+    <ClInclude Include="src\PlatformFlow\PlatformFlowStateMachine.h" />
+    <ClInclude Include="src\PlatformFlow\PlatformFlowInitState.h" />
+    <ClInclude Include="src\PlatformFlow\PlatformFlowMenuState.h" />
+    <ClInclude Include="src\PlatformFlow\PlatformFlowEndState.h" />
+    <ClInclude Include="src\PlatformFlow\PlatformState.h" />
   </ItemGroup>
 </Project>
