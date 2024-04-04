@@ -3,6 +3,37 @@
 #include "GameBlock.h"
 #include "../PlatformLayer.h"
 
+enum MenuState
+{
+    GameLibrary,
+    Reward
+};
+
+
+struct ButtonInfo {
+    std::string label;
+    ImVec2 size;
+    ImVec2 pos;
+    MenuState targetState;
+    std::string stateString;
+
+    ButtonInfo(const std::string& label, ImVec2 size, ImVec2 pos, MenuState targetState)
+        : label(label), size(size), pos(pos), targetState(targetState)
+    {
+        switch (targetState)
+        {
+        case GameLibrary:
+            stateString = std::string("Game Library State");
+            break;
+        case Reward:
+            stateString = std::string("Reward State");
+            break;
+        default:
+            break;
+        }
+    }
+};
+
 class PlatformFlowMenuState : public Unique::State<PlatformLayer, PlatformState>
 {
 public:
@@ -16,5 +47,7 @@ public:
 
 private:
     std::vector<GameBlock*> m_GameBlockVector;
+    std::vector<ButtonInfo> m_Buttons;
+    MenuState m_CurrentMenuState;
 };
 

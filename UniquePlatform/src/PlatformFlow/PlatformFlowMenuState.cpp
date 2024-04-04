@@ -15,6 +15,11 @@ void PlatformFlowMenuState::Enter(PlatformLayer* layer)
 	GameBlock* Test4 = new GameBlock(std::string("Test4"), sf::Vector2f(225, 175));
 	m_GameBlockVector.push_back(Test4);
 	Unique::Application::Get().GetWindow().SetBackgroundColor(42, 43, 43);
+
+	m_Buttons.push_back(ButtonInfo("Your Game", ImVec2(270, 65), ImVec2(30, 125), MenuState::GameLibrary));
+	m_Buttons.push_back(ButtonInfo("Reward", ImVec2(270, 65), ImVec2(30, 215), MenuState::Reward));
+	m_CurrentMenuState = MenuState::GameLibrary;
+	UQ_INFO("Begining Menu State : Game Library State");
 }
 
 void PlatformFlowMenuState::OnUpdate(PlatformLayer* layer, Unique::Timestep ts)
@@ -35,48 +40,81 @@ void PlatformFlowMenuState::OnRender(PlatformLayer* layer)
 
 void PlatformFlowMenuState::OnImGuiRender(PlatformLayer* layer)
 {
+
+
+	// Left Plane
+
 	auto window = static_cast<sf::RenderWindow*>(Unique::Application::Get().GetWindow().GetNativeWindow());
 	ImVec2 windowSize = window->getSize();
 	ImVec2 windowCenterPos = window->getSize();
 	windowCenterPos.x /= 2.f;
 	windowCenterPos.y /= 2.f;
 
-	ImVec2 leftblockPos = ImVec2(0,0);
+	ImVec2 leftblockPos = ImVec2(0, 0);
 	ImVec2 leftblockSize = ImVec2(windowSize.x * 0.25f, windowSize.y);
-	ImVec4 squareColor = ImVec4(0.0f, 0.0f, 0.0f, 1.0f); 
-	ImGui::GetWindowDrawList()->AddRectFilled(leftblockPos, 
+	ImVec4 squareColor = ImVec4(0.0f, 0.0f, 0.0f, 1.0f);
+	ImGui::GetWindowDrawList()->AddRectFilled(leftblockPos,
 		ImVec2(leftblockPos.x + leftblockSize.x, leftblockPos.y + leftblockSize.y), ImGui::ColorConvertFloat4ToU32(squareColor));
 	auto titleTextPos = leftblockPos;
 	titleTextPos.x += 45.f;
 	titleTextPos.y += 20.f;
 	ImGui::GetForegroundDrawList()->AddText(ImGui::GetIO().Fonts->Fonts[0], 90.0f, titleTextPos, 0xffffffff, "Unique");
-	auto gameLabelTextPos = leftblockPos;
-	gameLabelTextPos.x += 30.f;
-	gameLabelTextPos.y += 125.f;
-	ImGui::SetCursorPos(gameLabelTextPos);
-	
+
+
 	ImGuiStyle& style = ImGui::GetStyle();
 	ImVec4 originalButtonColor = style.Colors[ImGuiCol_Button];
 	ImVec4 originalButtonHoveredColor = style.Colors[ImGuiCol_ButtonHovered];
 	ImVec4 originalButtonActiveColor = style.Colors[ImGuiCol_ButtonActive];
 
-	style.Colors[ImGuiCol_Button] = ImVec4(0.1647f, 0.1686f, 0.1686f, 1.0f);
-	style.Colors[ImGuiCol_ButtonHovered] = ImVec4(0.1647f, 0.1686f, 0.1686f, 1.0f);
-	style.Colors[ImGuiCol_ButtonActive] = ImVec4(0.1647f, 0.1686f, 0.1686f, 1.0f);
-	ImGui::PushFont(ImGui::GetIO().Fonts->Fonts[1]);
-	if (ImGui::Button("Your Game", ImVec2(270, 65))) {
-		layer->GetFlowStateMachine()->ChangeState(PlatformState::Menu);
-	}
-	ImGui::PopFont();
 
+	//  Buttons
+	for (size_t i = 0; i < m_Buttons.size(); i++)
+	{
+		ImGui::PushFont(ImGui::GetIO().Fonts->Fonts[1]);
+		ImGui::SetCursorPos(m_Buttons[i].pos);
+		if (m_Buttons[i].targetState == m_CurrentMenuState) 
+		{
+			style.Colors[ImGuiCol_Button] = ImVec4(0.1647f, 0.1686f, 0.1686f, 1.0f);
+			style.Colors[ImGuiCol_ButtonHovered] = ImVec4(0.1647f, 0.1686f, 0.1686f, 1.0f);
+			style.Colors[ImGuiCol_ButtonActive] = ImVec4(0.1647f, 0.1686f, 0.1686f, 1.0f);
+		}
+		else
+		{
+			style.Colors[ImGuiCol_Button] = ImVec4(0.f, 0.f, 0.f, 1.0f);
+			style.Colors[ImGuiCol_ButtonHovered] = ImVec4(0.f, 0.f, 0.f, 1.0f);
+			style.Colors[ImGuiCol_ButtonActive] = ImVec4(0.f, 0.f, 0.f, 1.0f);
+		}
+
+		if (ImGui::Button(m_Buttons[i].label.c_str(), m_Buttons[i].size)) {
+			m_CurrentMenuState= m_Buttons[i].targetState;
+			UQ_INFO("Change Menu State : {0}", m_Buttons[i].stateString);
+		}
+		
+		ImGui::PopFont();
+	}
 	style.Colors[ImGuiCol_Button] = originalButtonColor;
 	style.Colors[ImGuiCol_ButtonHovered] = originalButtonHoveredColor;
 	style.Colors[ImGuiCol_ButtonActive] = originalButtonActiveColor;
 
-	for (size_t i = 0; i < m_GameBlockVector.size(); i++)
+	auto textPos = windowCenterPos;
+	switch (m_CurrentMenuState)
 	{
-		m_GameBlockVector[i]->OnImGuiRender();
+	case GameLibrary:
+		for (size_t i = 0; i < m_GameBlockVector.size(); i++)
+		{
+			m_GameBlockVector[i]->OnImGuiRender();
+		}
+		break;
+	case Reward:
+		textPos.x -= 30.f;
+		textPos.y -= 45.f;
+		ImGui::GetForegroundDrawList()->AddText(ImGui::GetIO().Fonts->Fonts[0], 90.0f, textPos, 0xffffffff, "Coming Soon...");
+		break;
+	default:
+		break;
 	}
+
+
 }
 
 void PlatformFlowMenuState::OnEvent(Event& e)
