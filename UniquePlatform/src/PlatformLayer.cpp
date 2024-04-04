@@ -6,6 +6,7 @@ PlatformLayer::PlatformLayer()
 	:Layer("PlatformLayer")
 {
 	m_PlatformStateMachine = new PlatformStateMachine(this);
+	m_PlayerData = new Unique::PlayerData("PlayerData.json");
 }
 
 void PlatformLayer::OnAttach()

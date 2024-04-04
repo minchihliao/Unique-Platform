@@ -43,6 +43,7 @@ project "Unique"
     {
         "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include",
+        "%{prj.name}/vendor/nlohmannJson/include",
         "%{IncludeDir.SFML_ImGui}/Imgui",
         "%{IncludeDir.SFML_ImGui}/SFML/include",
         "%{IncludeDir.SFML_ImGui}/SFML/src",
@@ -105,6 +106,7 @@ project "SpaceShooter"
     {
         "%{prj.name}/src",
         "Unique/vendor/spdlog/include",
+        "Unique/vendor/nlohmannJson/include",
         "Unique/src",
         "Unique/vendor/SFML_Imgui/SFML/include",
         "Unique/vendor/SFML_Imgui/Imgui",
@@ -161,6 +163,7 @@ project "UniquePlatform"
     {
         "%{prj.name}/src",
         "Unique/vendor/spdlog/include",
+        "Unique/vendor/nlohmannJson/include",
         "Unique/src",
         "Unique/vendor/SFML_Imgui/SFML/include",
         "Unique/vendor/SFML_Imgui/Imgui",
