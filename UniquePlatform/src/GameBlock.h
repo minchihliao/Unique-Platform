@@ -14,8 +14,10 @@ public:
 	virtual void OnRender() override;
 	virtual void OnImGuiRender() override;
 	virtual void OnEvent(Unique::Event& event) override;
+	void SetScore(int val) { m_Score = val; }
 
 private:
+	int m_Score = 0;
 	sf::Vector2f m_ButtonPos;
 	std::string getCurrentFilePath();
 	void execute();

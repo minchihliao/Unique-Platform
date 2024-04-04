@@ -2,7 +2,9 @@
 
 void PlatformFlowMenuState::Enter(PlatformLayer* layer)
 {
+	UQ_INFO("Begining Menu State : Game Library State");
 	GameBlock* spaceShooter = new GameBlock(std::string("SpaceShooter"), sf::Vector2f(-175, -275));
+	spaceShooter->SetScore(layer->GetPlayerData()->GetScore(spaceShooter->GetName()));
 	m_GameBlockVector.push_back(spaceShooter);
 	GameBlock* Shooter = new GameBlock(std::string("Shooter"), sf::Vector2f(225, -275));
 	m_GameBlockVector.push_back(Shooter);
@@ -18,12 +20,23 @@ void PlatformFlowMenuState::Enter(PlatformLayer* layer)
 
 	m_Buttons.push_back(ButtonInfo("Your Game", ImVec2(270, 65), ImVec2(30, 125), MenuState::GameLibrary));
 	m_Buttons.push_back(ButtonInfo("Reward", ImVec2(270, 65), ImVec2(30, 215), MenuState::Reward));
-	m_CurrentMenuState = MenuState::GameLibrary;
-	UQ_INFO("Begining Menu State : Game Library State");
+
+	
 }
 
 void PlatformFlowMenuState::OnUpdate(PlatformLayer* layer, Unique::Timestep ts)
 {
+	m_Time += ts;
+	if (m_Time > m_PlayerDataNextCheckTime) 
+	{
+		m_PlayerDataNextCheckTime = m_Time + m_PlayerDataInterval;
+		layer->GetPlayerData()->CheckAndReload();
+		for (size_t i = 0; i < m_GameBlockVector.size(); i++)
+		{
+			m_GameBlockVector[i]->SetScore(layer->GetPlayerData()->GetScore(m_GameBlockVector[i]->GetName()));
+		}
+	}
+
 	for (size_t i = 0; i < m_GameBlockVector.size(); i++)
 	{
 		m_GameBlockVector[i]->OnUpdate(ts);

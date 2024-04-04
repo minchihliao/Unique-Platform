@@ -6,7 +6,11 @@ PlatformLayer::PlatformLayer()
 	:Layer("PlatformLayer")
 {
 	m_PlatformStateMachine = new PlatformStateMachine(this);
-	m_PlayerData = new Unique::PlayerData("PlayerData.json");
+	char path[MAX_PATH] = { 0 };
+	GetModuleFileNameA(nullptr, path, MAX_PATH);
+	std::filesystem::path execPath = std::string(path);
+	std::filesystem::path saveDir = execPath.parent_path() / "PlayerData.json";
+	m_PlayerData = new Unique::PlayerData(saveDir.string());
 }
 
 void PlatformLayer::OnAttach()

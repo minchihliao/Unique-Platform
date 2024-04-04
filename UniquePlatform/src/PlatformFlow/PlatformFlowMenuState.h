@@ -37,7 +37,8 @@ struct ButtonInfo {
 class PlatformFlowMenuState : public Unique::State<PlatformLayer, PlatformState>
 {
 public:
-    PlatformFlowMenuState() {}
+    PlatformFlowMenuState()
+    :m_CurrentMenuState(MenuState::GameLibrary){}
     void Enter(PlatformLayer* layer) override;
     void OnUpdate(PlatformLayer* layer, Unique::Timestep ts) override;
     void OnRender(PlatformLayer* layer) override;
@@ -48,6 +49,9 @@ public:
 private:
     std::vector<GameBlock*> m_GameBlockVector;
     std::vector<ButtonInfo> m_Buttons;
+    float m_Time = 0.0f;
+    float m_PlayerDataInterval = 0.3f;
+    float m_PlayerDataNextCheckTime = m_PlayerDataInterval;
     MenuState m_CurrentMenuState;
 };
 

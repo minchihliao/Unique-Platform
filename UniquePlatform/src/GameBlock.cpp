@@ -44,11 +44,17 @@ void GameBlock::OnImGuiRender()
 		execute();
 	}
 	ImGui::PopFont();
+    ImVec2 scorePos = buttonPos;
+    scorePos.x += 185.f;
+    scorePos.y += 150.f;
+    std::string scoreStr = std::string("Hightest Score: ") + std::to_string(m_Score);
+    ImGui::GetForegroundDrawList()->AddText(ImGui::GetIO().Fonts->Fonts[0], 20.f, scorePos, 0xffffffff, scoreStr.c_str());
 }
 
 void GameBlock::OnEvent(Unique::Event& event)
 {
 }
+
 
 std::string GameBlock::getCurrentFilePath()
 {

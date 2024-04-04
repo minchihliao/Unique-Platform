@@ -19,12 +19,14 @@ public:
 	GameFlowStateMachine* GetFlowStateMachine() { return m_GameFlowStateMachine; }
 	void SetScore(uint32_t score) { m_Score = score; }
 	uint32_t GetScore() const { return m_Score; }
+	Unique::PlayerData* GetPlayerData() { return m_PlayerData; }
 
 private:
 	bool OnMouseButtonPressed(Unique::MouseButtonPressedEvent& e);
 	bool OnWindowResize(Unique::WindowResizeEvent& e);
 private:
 	GameFlowStateMachine* m_GameFlowStateMachine;
+	Unique::PlayerData* m_PlayerData;
 	uint32_t m_Score;
 
 };
