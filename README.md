@@ -17,9 +17,6 @@ Visual Studio 2022 is recommended, Unique is officially untested on other develo
 1. Clone this respositories.
 2. Execute **GenerateProject.bat** and it will generate Visual Studio project for us.
 
-## Enviroment
-
-
 ## Acknowledgments
 
 This project is inspired by by or based on the following projects:
