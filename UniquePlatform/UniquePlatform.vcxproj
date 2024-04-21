@@ -79,7 +79,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>UQ_PLAFORM_WINDOWS;UQ_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Unique\vendor\spdlog\include;..\Unique\src;..\Unique\vendor\SFML_Imgui\SFML\include;..\Unique\vendor\SFML_Imgui\Imgui;..\Unique\vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\Unique\vendor\spdlog\include;..\Unique\vendor\nlohmannJson\include;..\Unique\src;..\Unique\vendor\SFML_Imgui\SFML\include;..\Unique\vendor\SFML_Imgui\Imgui;..\Unique\vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -90,16 +90,13 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Debug-windows-x86_64\Unique\Unique.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\Unique\Unique.dll ..\bin\Debug-windows-x86_64\UniquePlatform &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\Unique\Unique.dll ..\bin\Debug-windows-x86_64\UniquePlatform &gt; nul)</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>UQ_PLAFORM_WINDOWS;UQ_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Unique\vendor\spdlog\include;..\Unique\src;..\Unique\vendor\SFML_Imgui\SFML\include;..\Unique\vendor\SFML_Imgui\Imgui;..\Unique\vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\Unique\vendor\spdlog\include;..\Unique\vendor\nlohmannJson\include;..\Unique\src;..\Unique\vendor\SFML_Imgui\SFML\include;..\Unique\vendor\SFML_Imgui\Imgui;..\Unique\vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -114,16 +111,13 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
-    <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Release-windows-x86_64\Unique\Unique.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\Unique\Unique.dll ..\bin\Release-windows-x86_64\UniquePlatform &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\Unique\Unique.dll ..\bin\Release-windows-x86_64\UniquePlatform &gt; nul)</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>UQ_PLAFORM_WINDOWS;UQ_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Unique\vendor\spdlog\include;..\Unique\src;..\Unique\vendor\SFML_Imgui\SFML\include;..\Unique\vendor\SFML_Imgui\Imgui;..\Unique\vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\Unique\vendor\spdlog\include;..\Unique\vendor\nlohmannJson\include;..\Unique\src;..\Unique\vendor\SFML_Imgui\SFML\include;..\Unique\vendor\SFML_Imgui\Imgui;..\Unique\vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -138,12 +132,25 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
-    <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Dist-windows-x86_64\Unique\Unique.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\Unique\Unique.dll ..\bin\Dist-windows-x86_64\UniquePlatform &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\Unique\Unique.dll ..\bin\Dist-windows-x86_64\UniquePlatform &gt; nul)</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Application.cpp" />
+    <ClInclude Include="src\Block.h" />
+    <ClInclude Include="src\GameBlock.h" />
+    <ClInclude Include="src\PlatformFlow\PlatformFlowEndState.h" />
+    <ClInclude Include="src\PlatformFlow\PlatformFlowInitState.h" />
+    <ClInclude Include="src\PlatformFlow\PlatformFlowMenuState.h" />
+    <ClInclude Include="src\PlatformFlow\PlatformFlowStateMachine.h" />
+    <ClInclude Include="src\PlatformFlow\PlatformState.h" />
+    <ClInclude Include="src\PlatformLayer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\GameBlock.cpp" />
+    <ClCompile Include="src\PlatformFlow\PlatformFlowEndState.cpp" />
+    <ClCompile Include="src\PlatformFlow\PlatformFlowInitState.cpp" />
+    <ClCompile Include="src\PlatformFlow\PlatformFlowMenuState.cpp" />
+    <ClCompile Include="src\PlatformFlow\PlatformFlowStateMachine.cpp" />
+    <ClCompile Include="src\PlatformLayer.cpp" />
+    <ClCompile Include="src\UniquePlatformApp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Unique\Unique.vcxproj">

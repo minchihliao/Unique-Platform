@@ -16,11 +16,17 @@
     <Filter Include="src\Unique\Platform">
       <UniqueIdentifier>{87007DB0-F361-5ABE-7CCF-A070E82F917D}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Unique\Platform\SFML">
+      <UniqueIdentifier>{08A406C5-F4C8-5545-1D14-3BD509985463}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Unique\Platform\Windows">
       <UniqueIdentifier>{C1412AD1-2D4F-58B7-B635-54A22242246E}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Unique\Renderer">
       <UniqueIdentifier>{D9075A8B-4569-3799-CED6-7D4B3A376E58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Unique\StateMachine">
+      <UniqueIdentifier>{98F4A720-042C-F0B7-0D36-54DB79EC16B1}</UniqueIdentifier>
     </Filter>
     <Filter Include="vendor">
       <UniqueIdentifier>{B3738122-9F15-ACF8-88D0-BF4C74113349}</UniqueIdentifier>
@@ -90,6 +96,9 @@
     <ClInclude Include="src\Unique\MouseButtonCodes.h">
       <Filter>src\Unique</Filter>
     </ClInclude>
+    <ClInclude Include="src\Unique\Platform\SFML\SFMLTexture2D.h">
+      <Filter>src\Unique\Platform\SFML</Filter>
+    </ClInclude>
     <ClInclude Include="src\Unique\Platform\Windows\SFMLWindow.h">
       <Filter>src\Unique\Platform\Windows</Filter>
     </ClInclude>
@@ -98,6 +107,21 @@
     </ClInclude>
     <ClInclude Include="src\Unique\Renderer\Renderer2D.h">
       <Filter>src\Unique\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Unique\Renderer\Texture.h">
+      <Filter>src\Unique\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Unique\Sprite.h">
+      <Filter>src\Unique</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Unique\StateMachine\State.h">
+      <Filter>src\Unique\StateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Unique\StateMachine\StateMachine.h">
+      <Filter>src\Unique\StateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Unique\Timestep.h">
+      <Filter>src\Unique</Filter>
     </ClInclude>
     <ClInclude Include="src\Unique\Window.h">
       <Filter>src\Unique</Filter>
@@ -1353,12 +1377,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Unique\Timestep.h" />
-    <ClInclude Include="src\Unique\Renderer\Texture.h" />
-    <ClInclude Include="src\Unique\Platform\SFML\SFMLTexture2D.h" />
-    <ClInclude Include="src\Unique\StateMachine\State.h" />
-    <ClInclude Include="src\Unique\StateMachine\StateMachine.h" />
-    <ClInclude Include="src\Unique\Sprite.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Unique\Application.cpp">
@@ -1376,6 +1394,9 @@
     <ClCompile Include="src\Unique\Log.cpp">
       <Filter>src\Unique</Filter>
     </ClCompile>
+    <ClCompile Include="src\Unique\Platform\SFML\SFMLTexture2D.cpp">
+      <Filter>src\Unique\Platform\SFML</Filter>
+    </ClCompile>
     <ClCompile Include="src\Unique\Platform\Windows\SFMLWindow.cpp">
       <Filter>src\Unique\Platform\Windows</Filter>
     </ClCompile>
@@ -1385,11 +1406,14 @@
     <ClCompile Include="src\Unique\Renderer\Renderer2D.cpp">
       <Filter>src\Unique\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Unique\Renderer\Texture.cpp">
+      <Filter>src\Unique\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Unique\Sprite.cpp">
+      <Filter>src\Unique</Filter>
+    </ClCompile>
     <ClCompile Include="src\uqpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Unique\Renderer\Texture.cpp" />
-    <ClCompile Include="src\Unique\Platform\SFML\SFMLTexture2D.cpp" />
-    <ClCompile Include="src\Unique\Sprite.cpp" />
   </ItemGroup>
 </Project>

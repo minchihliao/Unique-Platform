@@ -1,10 +1,29 @@
 #include "GameflowEndGameState.h"
+#include <shlwapi.h>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
 using namespace Unique;
 
 void GameflowEndGameState::Enter(GameLayer* layer)
 {
 	UQ_INFO("Game EndGame");
 	m_Restart = false;
+	
+	int currentScore = layer->GetScore();
+	int highestScore = layer->GetPlayerData()->GetScore("SpaceShooter");
+	UQ_INFO(highestScore);
+	if (highestScore < currentScore) {
+		layer->GetPlayerData()->UpdateScore("SpaceShooter", currentScore);
+		/*char path[MAX_PATH] = { 0 };
+		GetModuleFileNameA(nullptr, path, MAX_PATH);
+		std::filesystem::path execPath = std::string(path);
+		std::filesystem::path saveDir = execPath.parent_path().parent_path() / "UniquePlatform" / "PlayerData.json";
+		UQ_INFO(saveDir.string());*/
+		layer->GetPlayerData()->SaveToFile();
+	}
+
+	
 	
 }
 

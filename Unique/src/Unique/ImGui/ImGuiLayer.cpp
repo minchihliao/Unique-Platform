@@ -26,7 +26,6 @@ namespace Unique {
 		ImGuiIO& IO = ImGui::GetIO();
 		IO.Fonts->Clear(); 
 		IO.Fonts->AddFontFromFileTTF("assets/OpenSans-Regular.ttf",120.0f);
-		ImGui::SFML::UpdateFontTexture(); // important call: updates font texture
 		IO.Fonts->AddFontFromFileTTF("assets/OpenSans-Regular.ttf", 60.0f);
 		ImGui::SFML::UpdateFontTexture(); // important call: updates font texture
 	}
@@ -41,9 +40,9 @@ namespace Unique {
 		ImGui::SFML::Update(*window, deltaClock.restart());
 		ImGui::SetNextWindowPos(ImVec2(0, 0));
 		ImGui::SetNextWindowSize(ImVec2(window->getSize()));
-		ImGui::Begin("##TransparentWindow", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize 
+		ImGui::Begin("##TransparentWindow", nullptr, ImGuiWindowFlags_NoDecoration |ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize
 			| ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse 
-			| ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoBackground);
+			| ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoBackground );
 	}
 
 	void ImGuiLayer::End()

@@ -37,3 +37,8 @@
 #include "Unique/Platform/SFML/SFMLTexture2D.h"
 #include "Unique/Sprite.h"
 // ---------------------------------------------
+
+
+// --- Player -------------------------------
+#include "Unique/PlayerData/PlayerData.h"
+//-------------------------------------------

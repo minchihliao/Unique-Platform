@@ -25,6 +25,12 @@ namespace Unique
 			}
 		}
 
+		inline virtual Condition GetCurrentStateEnum()
+		{
+			return m_CurrentStateEnum;
+		}
+
+
 		inline virtual void ChangeState(Condition condition) 
 		{
 			if (m_CurrentState)
@@ -40,8 +46,9 @@ namespace Unique
 				}
 				else
 				{
-					m_CurrentState = contains->second;
 					UQ_CORE_INFO("Change to {0} State", ConditionToString(condition));
+					m_CurrentState = contains->second;
+					m_CurrentStateEnum = condition;
 					m_CurrentState->Enter(m_Owner);
 
 				}
@@ -81,6 +88,7 @@ namespace Unique
 		}
 		T* m_Owner;
 		State<T,Condition>* m_CurrentState;
+		Condition m_CurrentStateEnum;
 		std::unordered_map<Condition, State<T, Condition>*> m_Transitions;
 	};
 

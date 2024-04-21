@@ -1,6 +1,6 @@
 workspace "Unique"
     architecture "x64"
-    startproject "SpaceShooter"
+    startproject "UniquePlatform"
 configurations
 {
     "Debug",
@@ -43,6 +43,7 @@ project "Unique"
     {
         "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include",
+        "%{prj.name}/vendor/nlohmannJson/include",
         "%{IncludeDir.SFML_ImGui}/Imgui",
         "%{IncludeDir.SFML_ImGui}/SFML/include",
         "%{IncludeDir.SFML_ImGui}/SFML/src",
@@ -103,7 +104,9 @@ project "SpaceShooter"
     }
       includedirs
     {
+        "%{prj.name}/src",
         "Unique/vendor/spdlog/include",
+        "Unique/vendor/nlohmannJson/include",
         "Unique/src",
         "Unique/vendor/SFML_Imgui/SFML/include",
         "Unique/vendor/SFML_Imgui/Imgui",
@@ -158,7 +161,9 @@ project "UniquePlatform"
     }
       includedirs
     {
+        "%{prj.name}/src",
         "Unique/vendor/spdlog/include",
+        "Unique/vendor/nlohmannJson/include",
         "Unique/src",
         "Unique/vendor/SFML_Imgui/SFML/include",
         "Unique/vendor/SFML_Imgui/Imgui",
@@ -171,10 +176,6 @@ project "UniquePlatform"
     }
 
 
-    postbuildcommands
-    {
-        ("{COPY} ../bin/" .. Outputdir .. "/Unique/Unique.dll %{cfg.targetdir}")
-    }
 
     filter "system:windows"
         systemversion "latest"
@@ -189,6 +190,7 @@ project "UniquePlatform"
         runtime "Debug"
         symbols "on"
 
+       
     filter "configurations:Release"
         defines "UQ_RELEASE"
         runtime "Release"

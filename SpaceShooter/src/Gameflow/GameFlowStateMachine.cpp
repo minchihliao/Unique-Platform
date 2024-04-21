@@ -13,10 +13,10 @@ void GameFlowStateMachine::Init()
 std::string GameFlowStateMachine::ConditionToString(GameFlowState condition)
 {
 	switch (condition) {
-	case GameFlowState::Init: return "Init";
-	case GameFlowState::Menu: return "Menu";
-	case GameFlowState::Game: return "Game";
-	case GameFlowState::EndGame: return "EndGame";
+		case GameFlowState::Init: return "Init";
+		case GameFlowState::Menu: return "Menu";
+		case GameFlowState::Game: return "Game";
+		case GameFlowState::EndGame: return "EndGame";
 	default: return "Unknown";
 	}
 

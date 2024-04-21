@@ -1,12 +1,13 @@
 #pragma once
 #include "Unique.h"
-#include "Gameflow/GameFlowStateMachine.h"
 
-class GameLayer : public Unique::Layer
+#include "PlatformFlow/PlatformFlowStateMachine.h"
+
+class PlatformLayer : public Unique::Layer
 {
 public:
-	GameLayer();
-	virtual ~GameLayer() = default;
+	PlatformLayer();
+	~PlatformLayer() = default;
 
 	virtual void OnAttach() override;
 	virtual void OnDetach() override;
@@ -16,17 +17,13 @@ public:
 	virtual void OnImGuiRender() override;
 	void OnEvent(Unique::Event& e) override;
 
-	GameFlowStateMachine* GetFlowStateMachine() { return m_GameFlowStateMachine; }
-	void SetScore(uint32_t score) { m_Score = score; }
-	uint32_t GetScore() const { return m_Score; }
 	Unique::PlayerData* GetPlayerData() { return m_PlayerData; }
+	PlatformStateMachine* GetFlowStateMachine() { return m_PlatformStateMachine; }
 
 private:
 	bool OnMouseButtonPressed(Unique::MouseButtonPressedEvent& e);
 	bool OnWindowResize(Unique::WindowResizeEvent& e);
 private:
-	GameFlowStateMachine* m_GameFlowStateMachine;
 	Unique::PlayerData* m_PlayerData;
-	uint32_t m_Score;
-
+	PlatformStateMachine* m_PlatformStateMachine;
 };

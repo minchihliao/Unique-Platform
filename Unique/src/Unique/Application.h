@@ -14,7 +14,9 @@ namespace Unique
 	class UNIQUE_API Application
 	{
 		public:
-			Application();
+			Application()
+				:Application(WindowProps()) {}
+			Application(WindowProps windowProps);
 			virtual ~Application();
 			void Run();
 			void End();
